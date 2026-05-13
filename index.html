@@ -14,15 +14,14 @@
 
     :root {
       --primary: linear-gradient(
-    135deg,
-    #fff6b7 0%,
-    #f7d774 15%,
-    #e0b84f 30%,
-    #b8860b 45%,
-    #ffd700 60%,
-    #f7d774 75%,
-    #fff6b7 100%
-  );
+        135deg,
+      #b8860b 50%,
+      #f7d774 15%,
+      #e0b84f 30%,
+      #b8860b 45%,
+      #e0b84f 10%,
+      #b8860b 50%
+      );
       --dark: #0f172a;
       --light: #f8fafc;
       --text: #334155;
@@ -66,6 +65,11 @@
       font-weight: 800;
       color: var(--dark);
     }
+    .logo img {
+      height: 130px;
+      width: auto;
+      display: block;
+      }
 
     .logo span {
       color: var(--primary);
@@ -88,7 +92,7 @@
     }
 
     .quote-btn {
-      background: var(--primary);
+      background: url("button1.png") center/cover;
       color: var(--white) !important;
       padding: 11px 18px;
       border-radius: 999px;
@@ -144,7 +148,7 @@
     }
 
     .btn-primary {
-      background: var(--primary);
+      background: url("button1.png") center/cover;
       color: var(--white);
     }
 
@@ -207,8 +211,8 @@
       display: grid;
       place-items: center;
       border-radius: 18px;
-      background: rgba(18, 184, 166, 0.12);
-      color: var(--primary);
+      background: url("button1.png") center/cover;
+      color: var(--white);
       font-size: 1.8rem;
       margin-bottom: 18px;
     }
@@ -262,7 +266,7 @@
     }
 
     .prices {
-      background: #ecfeff;
+      background: var(--light)
     }
 
     .price-card {
@@ -341,7 +345,7 @@
       height: 46px;
       border-radius: 50%;
       border: none;
-      background: var(--primary);
+      background: url("button1.png") center/cover;
       color: var(--white);
       font-size: 1.3rem;
       cursor: pointer;
@@ -399,13 +403,14 @@
       form {
         padding: 24px;
       }
+      
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="#" class="logo">Moxi <span>Cleaning Co.</span></a>
+      <a href="#" class="logo"><img src="logo.png"  alt="Moxi Cleaning Co Logo"></a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
@@ -417,6 +422,7 @@
   </header>
 
   <main>
+
     <section class="hero" id="home">
       <div class="container">
         <h1>Reliable Cleaning For Homes & Businesses</h1>
@@ -427,10 +433,9 @@
         </div>
       </div>
     </section>
-
     <section id="services">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title">    <br>    <br>    <br>
           <h2>Our Cleaning Services</h2>
           <p>From regular house cleans to deep cleans and office cleaning, we make your place feel brand new.</p>
         </div>
@@ -457,7 +462,7 @@
       </div>
     </section>
 
-    <section id="about">
+    <section id="about">    <br>    <br>    <br>
       <div class="container about-grid">
         <div class="about-content">
           <h2>A Local Husband & Wife Team You Can Trust</h2>
@@ -470,12 +475,12 @@
           </ul>
         </div>
         <div class="about-img">
-          <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1000&q=80" alt="Cleaning supplies" />
+          <img src="house.png" alt="Cleaning supplies" />
         </div>
       </div>
     </section>
 
-    <section class="prices" id="prices">
+    <section class="prices" id="prices">    <br>    <br>    <br>
       <div class="container">
         <div class="section-title">
           <h2>Simple Packages</h2>
