@@ -46,7 +46,7 @@
     }
 
     header {
-      background: var(--white);
+      background: url(back.png) center 64%/cover no-repeat;
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
@@ -92,12 +92,34 @@
       text-shadow: #b8860b 0px 0px 8px;
     }
 
-    .quote-btn {
-      background: url("button1.png") center/cover;
-      color: black;
-      padding: 11px 18px;
-      border-radius: 999px;
-      transition: 0.3s ease;
+    .quote-btn{
+      display:inline-block;
+      padding:16px 42px;
+      border-radius:50px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f7d774 0%,
+          #d4a017 40%,
+          #b8860b 70%,
+          #f7d774 100%
+        );
+
+      color:white;
+      font-size:18px;
+      font-weight:700;
+      font-family:'Poppins', sans-serif;
+
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+
+      box-shadow:
+        0 8px 20px rgba(184,134,11,0.35),
+        inset 0 1px 1px rgba(255,255,255,0.5);
+
+      transition:all .3s ease;
     }
 
     .quote-btn:hover {
@@ -155,9 +177,33 @@
     }
 
     .btn-primary {
-      background: url("button1.png") center/cover;
-      color: black;
-      transition: 0.3s ease;
+      display:inline-block;
+      padding:16px 42px;
+      border-radius:50px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f7d774 0%,
+          #d4a017 40%,
+          #b8860b 70%,
+          #f7d774 100%
+        );
+
+      color:black;
+      font-size:18px;
+      font-weight:700;
+      font-family:'Poppins', sans-serif;
+
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+
+      box-shadow:
+        0 8px 20px rgba(184,134,11,0.35),
+        inset 0 1px 1px rgba(255,255,255,0.5);
+
+      transition:all .3s ease;
     }
 
     .btn-primary:hover {
@@ -220,7 +266,14 @@
       display: grid;
       place-items: center;
       border-radius: 18px;
-      background: url("button1.png") center/cover;
+      background:
+        linear-gradient(
+          135deg,
+          #f7d774 0%,
+          #d4a017 45%,
+          #b8860b 75%,
+          #f7d774 100%
+        );
       color: var(--white);
       font-size: 1.8rem;
       margin-bottom: 18px;
@@ -347,25 +400,51 @@
       padding: 28px 0;
     }
 
-    .back-top {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: none;
-      background: url("button1.png") center/cover;
-      color: black;
-      font-size: 1.3rem;
-      cursor: pointer;
-      display: none;
-      box-shadow: var(--shadow);
-    }
-    .back-top:hover {
-      transform: translateY(-3px);
-      box-shadow: #b8860b 0px 0px 20px;
-    }
+.back-top{
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: url("arrow1.png") center/70% no-repeat,
+              linear-gradient(
+                135deg,
+                #f7d774 0%,
+                #d4a017 45%,
+                #b8860b 75%,
+                #f7d774 100%
+              );
+
+  background-size: 38px, cover;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 10px 25px rgba(184,134,11,0.35),
+    inset 0 1px 2px rgba(255,255,255,0.45);
+
+  transition: all .3s ease;
+
+  z-index: 999;
+}
+
+.back-top:hover{
+  transform: translateY(-4px) scale(1.08);
+
+  box-shadow:
+    0 0 25px rgba(255,215,0,0.7),
+    0 14px 30px rgba(184,134,11,0.45),
+    inset 0 1px 2px rgba(255,255,255,0.55);
+}
 
     .back-top.show {
       display: block;
@@ -373,12 +452,15 @@
 
     @media (max-width: 850px) {
       .menu-btn {
+        font-size: 60px;
+        font-weight: 900;
         display: block;
+        
       }
 
       .nav-links {
         position: absolute;
-        top: 72px;
+        top: 102px;
         left: 0;
         right: 0;
         background: var(--white);
@@ -424,7 +506,7 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#" class="logo"><img src="logo.png"  alt="Moxi Cleaning Co Logo"></a>
+      <a href="#" class="logo"><img src="logo3.png"  alt="Moxi Cleaning Co. Logo"></a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
@@ -531,20 +613,28 @@
         </div>
 
         <form id="quoteForm">
-          <input type="text" id="name" placeholder="Your Name" required />
-          <input type="tel" id="phone" placeholder="Phone Number" required />
-          <input type="email" id="email" placeholder="Email Address" required />
-          <select id="service" required>
-            <option value="">Choose a service</option>
-            <option>Home Cleaning</option>
-            <option>Deep Cleaning</option>
-            <option>Office Cleaning</option>
-            <option>Move In / Move Out Cleaning</option>
-          </select>
-          <textarea id="message" placeholder="Tell us what you need cleaned..." required></textarea>
-          <button class="btn btn-primary" type="submit">Send Quote Request</button>
-          <p id="formMessage"></p>
-        </form>
+  <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+  <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
+
+  <input type="email" id="email" name="email" placeholder="Email Address" required />
+
+  <select id="service" name="service" required>
+    <option value="">Choose a service</option>
+    <option>Home Cleaning</option>
+    <option>Deep Cleaning</option>
+    <option>Office Cleaning</option>
+    <option>Move In / Move Out Cleaning</option>
+  </select>
+
+  <textarea id="message" name="message" placeholder="Tell us what you need cleaned..." required></textarea>
+
+  <button class="btn btn-primary" type="submit">
+    Send Quote Request
+  </button>
+
+  <p id="formMessage"></p>
+</form>
       </div>
     </section>
   </main>
@@ -556,7 +646,7 @@
     </div>
   </footer>
 
-  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <button class="back-top" id="backTop" aria-label="Back to top"></button>
 
   <script>
     const menuBtn = document.getElementById("menuBtn");
@@ -591,25 +681,51 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    quoteForm.addEventListener("submit", (event) => {
-      event.preventDefault();
+    quoteForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const service = document.getElementById("service").value;
-      const message = document.getElementById("message").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const service = document.getElementById("service").value;
+  const message = document.getElementById("message").value.trim();
 
-      if (!name || !phone || !email || !service || !message) {
-        formMessage.textContent = "Please fill out every field.";
-        formMessage.style.color = "#dc2626";
-        return;
-      }
+  if (!name || !phone || !email || !service || !message) {
+    formMessage.textContent = "Please fill out every field.";
+    formMessage.style.color = "#dc2626";
+    return;
+  }
 
-      formMessage.textContent = "Thanks! Your quote request has been prepared.";
+  try {
+    const response = await fetch("https://formspree.io/f/xrejvevy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        service,
+        message
+      })
+    });
+
+    if (response.ok) {
+      formMessage.textContent = "Thanks! Your quote request was sent.";
       formMessage.style.color = "#16a34a";
       quoteForm.reset();
-    });
+    } else {
+      formMessage.textContent = "Something went wrong.";
+      formMessage.style.color = "#dc2626";
+    }
+
+  } catch (error) {
+    formMessage.textContent = "Network error.";
+    formMessage.style.color = "#dc2626";
+  }
+});
   </script>
 </body>
 </html>
