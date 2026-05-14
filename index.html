@@ -167,6 +167,14 @@
       gap: 14px;
       flex-wrap: wrap;
     }
+    .line {
+      width: 2000px;
+      border-radius: 00px;
+      height: 350px;
+      display: block;
+      margin: -16rem auto;
+      margin-left: -450px;
+    }
 
     .btn {
       display: inline-block;
@@ -242,13 +250,13 @@
       margin: auto;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap:24px;
     }
 
-    .card {
+    .card{
       background: var(--white);
       padding: 30px;
       border-radius: 22px;
@@ -283,6 +291,18 @@
       color: black;
       margin-bottom: 10px;
       font-size: 1.3rem;
+    }
+    .old-price{
+      text-decoration: line-through;
+      color: #b8860b;
+      font-size: 1.4rem;
+      margin-right: 10px;
+      font-weight: 600;
+    }
+    .new-price {
+      color: #000;
+      font-size: 1.6rem;
+      font-weight: 700;
     }
 
     .about-grid {
@@ -400,57 +420,70 @@
       padding: 28px 0;
     }
 
-.back-top{
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
+    .back-top{
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
 
-  width: 58px;
-  height: 58px;
+      width: 58px;
+      height: 58px;
 
-  border-radius: 50%;
-  border: none;
+      border-radius: 50%;
+      border: none;
 
-  background: url("arrow1.png") center/70% no-repeat,
-              linear-gradient(
-                135deg,
-                #f7d774 0%,
-                #d4a017 45%,
-                #b8860b 75%,
-                #f7d774 100%
-              );
+      background: url("arrow1.png") center/70% no-repeat,
+                  linear-gradient(
+                    135deg,
+                    #f7d774 0%,
+                    #d4a017 45%,
+                    #b8860b 75%,
+                    #f7d774 100%
+                  );
 
-  background-size: 38px, cover;
+      background-size: 38px, cover;
 
-  cursor: pointer;
+      cursor: pointer;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  box-shadow:
-    0 10px 25px rgba(184,134,11,0.35),
-    inset 0 1px 2px rgba(255,255,255,0.45);
+      box-shadow:
+        0 10px 25px rgba(184,134,11,0.35),
+        inset 0 1px 2px rgba(255,255,255,0.45);
 
-  transition: all .3s ease;
+      transition: all .3s ease;
 
-  z-index: 999;
-}
+      z-index: 999;
+    }
 
-.back-top:hover{
-  transform: translateY(-4px) scale(1.08);
+    .back-top:hover{
+      transform: translateY(-4px) scale(1.08);
 
-  box-shadow:
-    0 0 25px rgba(255,215,0,0.7),
-    0 14px 30px rgba(184,134,11,0.45),
-    inset 0 1px 2px rgba(255,255,255,0.55);
-}
+      box-shadow:
+        0 0 25px rgba(255,215,0,0.7),
+        0 14px 30px rgba(184,134,11,0.45),
+        inset 0 1px 2px rgba(255,255,255,0.55);
+    }
 
     .back-top.show {
       display: block;
     }
 
     @media (max-width: 850px) {
+      .cards{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap:24px;
+      }
+
+      .card{
+        background: var(--white);
+        padding: 30px;
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        transition: 0.25s;
+      }
       .menu-btn {
         font-size: 60px;
         font-weight: 900;
@@ -483,6 +516,13 @@
 
       .about-img {
         order: -1;
+      }
+      .line {
+        padding-top: 200px;
+        width: 1120px;
+        border-radius: 00px;
+        height: 370px;
+        display: block;
       }
     }
 
@@ -579,37 +619,190 @@
     <section class="prices" id="prices">    <br>    <br>    <br>
       <div class="container">
         <div class="section-title">
-          <h2>Simple Packages</h2>
-          <p>Use these as starter prices, then adjust them to suit your actual business rates.</p>
+          <h2>Grand Opening Special</h2>
+          <p>Take advantage of our limited-time offer and get a deep clean at a discounted rate!</p>
         </div>
 
         <div class="cards">
           <article class="card price-card">
-            <h3>Basic Clean</h3>
-            <div class="price">From $99</div>
-            <p>Perfect for regular tidy-ups and smaller homes.</p>
-          </article>
+        <h3>Deep Clean</h3>
 
-          <article class="card price-card">
-            <h3>Deep Clean</h3>
-            <div class="price">From $199</div>
-            <p>Detailed cleaning for kitchens, bathrooms, floors, and hard-to-reach spots.</p>
-          </article>
-
-          <article class="card price-card">
-            <h3>Office Clean</h3>
-            <div class="price">Custom</div>
-            <p>Flexible plans for offices, shops, and small business spaces.</p>
-          </article>
+        <div class="price">
+        <span class="old-price">was $260</span>
+        Now $240
         </div>
-      </div>
+
+        <p>
+          Full deep clean for a 2 bedroom, 1 bathroom home.
+          Perfect for homes needing extra attention and detail.
+        </p>
+
+        <ul class="ticks" style="margin-top:20px; text-align:left;">
+          <li>Kitchens & bathrooms</li>
+          <li>Vacuum & mop floors</li>
+          <li>Dusting & surface wipe down</li>
+          <li>Detailed deep cleaning</li>
+        </ul>
+      </article>
+      <article class="card price-card">
+        <h3>Deep Clean</h3>
+
+        <div class="price">
+        <span class="old-price">was $300</span>
+        Now $280
+        </div>
+
+        <p>
+          Full deep clean for a 3 bedroom, 1 bathroom home.
+          Perfect for homes needing extra attention and detail.
+        </p>
+
+        <ul class="ticks" style="margin-top:20px; text-align:left;">
+          <li>Kitchens & bathrooms</li>
+          <li>Vacuum & mop floors</li>
+          <li>Dusting & surface wipe down</li>
+          <li>Detailed deep cleaning</li>
+        </ul>
+      </article>
+      <article class="card price-card">
+        <h3>Deep Clean</h3>
+
+        <div class="price">
+        <span class="old-price">was $340</span>
+        Now $320
+        </div>
+
+        <p>
+          Full deep clean for a 3 bedroom, 2 bathroom home.
+          Perfect for homes needing extra attention and detail.
+        </p>
+
+        <ul class="ticks" style="margin-top:20px; text-align:left;">
+          <li>Kitchens & bathrooms</li>
+          <li>Vacuum & mop floors</li>
+          <li>Dusting & surface wipe down</li>
+          <li>Detailed deep cleaning</li>
+        </ul>
+      </article>
+      <article class="card price-card">
+        <h3>Deep Clean</h3>
+
+        <div class="price">
+        <span class="old-price">was $380</span>
+        Now $360
+        </div>
+
+        <p>
+          Full deep clean for a 4 bedroom, 2 bathroom home.
+          Perfect for homes needing extra attention and detail.
+        </p>
+
+        <ul class="ticks" style="margin-top:20px; text-align:left;">
+          <li>Kitchens & bathrooms</li>
+          <li>Vacuum & mop floors</li>
+          <li>Dusting & surface wipe down</li>
+          <li>Detailed deep cleaning</li>
+        </ul>
+      </article>
+        </div>
+<br><br><br>
+      <!-- Line to show different sections -->
+      
+          <img src="back_trans.png" class="line" alt="gold line">
+          <br> 
+
+      <!-- start new section -->
+      <br><br><br><br><br><br><br><br><br><br><br>
+      <div class="container">
+
+    <div class="section-title">
+      <h2>Add-On Services</h2>
+
+      <p>
+        Here are some add-ons you can include with your regular cleaning for a more thorough clean. 
+        Just let us know when you book your quote!
+      </p>
+    </div>
+    <br>
+    <div class="cards">
+
+      <article class="card price-card">
+        <h3>Oven Clean</h3>
+        <br>
+
+        <div class="price">
+          From $80
+        </div>
+        <br>
+
+        <p>
+          A deep clean for your oven to get rid of built-up grease and grime.
+        </p>
+      </article>
+
+      <article class="card price-card">
+        <h3>Plantation Shutters</h3>
+        <br>
+
+        <div class="price">
+          From $40
+        </div>
+        <br>
+
+        <p>
+          A detailed clean for your plantation shutters to get rid of dust and allergens.
+        </p>
+      </article>
+      <article class="card price-card">
+        <h3>Heavy Grout Build-Up / Grout Restoration</h3>
+        
+
+        <div class="price">
+          From $50
+        </div>
+        <br>
+
+        <p>
+          A deep clean for your grout to get rid of built-up dirt and grime and restore it to its original color.
+        </p>
+      </article>
+      <article class="card price-card">
+        <h3>Interior Windows</h3>
+        
+
+        <div class="price">
+          From $60
+        </div>
+        <br>
+
+        <p>
+          A deep clean for your interior windows to get rid of dirt and smudges and restore them to their original clarity.
+        </p>
+      </article>
+      <article class="card price-card">
+        <h3>Wall Spot Cleaning</h3>
+        
+
+        <div class="price">
+          From $40
+        </div>
+        <br>
+
+        <p>
+          A detailed clean for your walls to get rid of scuff marks, stains, and fingerprints and restore them to their original look.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>Get Your Free Quote</h2>
-          <p>Send us your details and we will get back to you as soon as possible.</p>
+          <section class="contact" id="contact">
+            <div class="container">
+              <div class="section-title">
+                <h2>Get Your Free Quote</h2>
+                <p>Send us your details and we will get back to you as soon as possible.</p>
         </div>
 
         <form id="quoteForm">
@@ -625,6 +818,9 @@
     <option>Deep Cleaning</option>
     <option>Office Cleaning</option>
     <option>Move In / Move Out Cleaning</option>
+    <option>Carpet Cleaning</option>
+    <option>Other</option>
+
   </select>
 
   <textarea id="message" name="message" placeholder="Tell us what you need cleaned..." required></textarea>
@@ -642,7 +838,7 @@
   <footer>
     <div class="container">
       <p>© <span id="year"></span> Moxi Cleaning Co. All rights reserved.</p>
-      <p>Call: 0487 356 302 | Email: hello@moxicleaning.com</p>
+      <p> Email: moxicleaningco@gmail.com</p>
     </div>
   </footer>
 
