@@ -33,6 +33,7 @@
       background: var(--light);
       color: var(--text);
       line-height: 1.6;
+      overflow-x:hidden;
     }
 
     a {
@@ -69,7 +70,7 @@
       height: 130px;
       width: auto;
       display: block;
-      }
+    }
 
     .logo span {
       color: black;
@@ -83,13 +84,13 @@
 
     .nav-links a {
       font-weight: 600;
-      color: var(--dark);
+      color: black;
       transition: 0.25s;
     }
 
     .nav-links a:hover {
-      color: rgb(173, 120, 5);
-      text-shadow: #b8860b 0px 0px 8px;
+      color: rgb(206, 175, 1);
+      text-shadow: #f7d774 0px 0px 8px;
     }
 
     .quote-btn{
@@ -123,8 +124,11 @@
     }
 
     .quote-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
+      transform: translateY(-4px) scale(1.08);
+      box-shadow:
+        0 0 25px rgba(255,215,0,0.7),
+        0 14px 30px rgba(184,134,11,0.45),
+        inset 0 2px 2px rgba(255,255,255,0.55);
       color: white !important;
     }
     .menu-btn {
@@ -168,12 +172,12 @@
       flex-wrap: wrap;
     }
     .line{
+      display: static;
       width: 98vw;
-      max-width: none;
-      height: auto;
-      margin: -220px 0;
+      margin: -120px 0;
       left: 50%;
-      margin-top: -700px;
+      margin-top: -480px;
+      margin-bottom: -450px;
 
     }
 
@@ -197,27 +201,14 @@
           #d4a017 40%,
           #b8860b 70%,
           #f7d774 100%
-        );
-
-      color:black;
-      font-size:18px;
-      font-weight:700;
-      font-family:'Poppins', sans-serif;
-
-      text-decoration:none;
-      border:none;
-      cursor:pointer;
-
-      box-shadow:
-        0 8px 20px rgba(184,134,11,0.35),
-        inset 0 1px 1px rgba(255,255,255,0.5);
-
-      transition:all .3s ease;
-    }
+        );}
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
+      transform: translateY(-4px) scale(1.08);
+      box-shadow:
+        0 0 25px rgba(255,215,0,0.7),
+        0 14px 30px rgba(184,134,11,0.45),
+        inset 0 1px 2px rgba(255,255,255,0.55);
       color: white !important;
     }
 
@@ -233,6 +224,23 @@
 
     section {
       padding: 80px 0;
+    }
+    .cards-top{
+      width: 100%;
+      position:relative;
+    }
+    
+    .background{
+      width:100vw;
+      height: 1000px;
+      margin-top: -80px;
+      margin-left:50%;
+      transform:translateX(-50%);
+
+      background-image:url("bg_gold.png");
+      background-size:cover;
+      background-position:center;
+      background-repeat:repeat;
     }
 
     .section-title {
@@ -255,19 +263,39 @@
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap:24px;
+      padding: 20px 12px;
     }
 
     .card{
       background: var(--white);
-      padding: 30px;
+      padding: 39px;
       border-radius: 22px;
       box-shadow: var(--shadow);
       transition: 0.25s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      box-shadow:
+        0 0 25px rgba(255,215,0,0.7),
+        0 14px 30px rgba(184,134,11,0.45),
+        inset 0 1px 2px rgba(255,255,255,0.55);
+      transform: translateY(-8px);
     }
+    
+      .add-on-cards{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap:24px;
+      }
+      .add-on-cards h3{
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+      .add-on-cards .card{
+        font-size: 13px;
+        padding: 30px;
+      }
+    
 
     .icon {
       width: 58px;
@@ -291,18 +319,18 @@
     .card h3 {
       color: black;
       margin-bottom: 10px;
-      font-size: 1.3rem;
+      font-size: 1rem;
     }
     .old-price{
       text-decoration: line-through;
       color: #b8860b;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       margin-right: 10px;
-      font-weight: 600;
+      font-weight: 500;
     }
     .new-price {
       color: #000;
-      font-size: 1.6rem;
+      font-size: 30px;
       font-weight: 700;
     }
 
@@ -337,6 +365,7 @@
     }
 
     .ticks li {
+      font-size: small;
       list-style: none;
       font-weight: 600;
     }
@@ -349,6 +378,7 @@
     }
 
     .prices {
+      padding-top: -100px;
       background: var(--light)
     }
 
@@ -420,47 +450,42 @@
       text-align: center;
       padding: 28px 0;
     }
+    .banner{
+      width: 130%;
+      height:clamp(292px, 9014vw, 920px);
+      background-image:url("banner.png");
+      background-position:center 64%;
+      background-size:contain;
+      background-repeat:no-repeat;
+      margin: -377px 50% 0;
+      transform:translateX(-50%);
+      display: grid;
+      justify-content: center;
 
+    }
     .back-top{
+      background:url("arrowup.gif") center/contain no-repeat;
       position: fixed;
-      right: 92px;
-      bottom: 12px;
-
-      width: 58px;
-      height: 58px;
-
+      right: 84px;
+      bottom: 25px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       border: none;
-
-      background: url("arrow1.png") center/70% no-repeat,
-                  linear-gradient(
-                    135deg,
-                    #f7d774 0%,
-                    #d4a017 45%,
-                    #b8860b 75%,
-                    #f7d774 100%
-                  );
-
       background-size: 38px, cover;
-
       cursor: pointer;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
-      box-shadow:
-        0 10px 25px rgba(184,134,11,0.35),
-        inset 0 1px 2px rgba(255,255,255,0.45);
-
       transition: all .3s ease;
+      box-shadow:
+        0 0 20px rgba(255,215,0,0.45),
+        0 8px 20px rgba(184,134,11,0.35);
 
       z-index: 999;
     }
-
     .back-top:hover{
       transform: translateY(-4px) scale(1.08);
-
       box-shadow:
         0 0 25px rgba(255,215,0,0.7),
         0 14px 30px rgba(184,134,11,0.45),
@@ -472,22 +497,36 @@
     }
 
     @media (max-width: 850px) {
+
+
+  
+      .logo img{
+        width: 120px;
+        height: auto;
+        image-resolution: calc(20px * 2);
+      }
+
       .cards{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap:24px;
+        font-size: small;
+        align-items: center;
+        display:grid;
+        grid-template-columns:repeat(2, 1fr);
+        gap:24px;
       }
 
       .card{
+        grid-template-columns:2fr;
+        align-items: center;
         background: var(--white);
         padding: 30px;
         border-radius: 22px;
         box-shadow: var(--shadow);
         transition: 0.25s;
       }
+
       .menu-btn {
-        font-size: 60px;
-        font-weight: 900;
+        font-size: 30px;
+        font-weight: 200;
         display: block;
         
       }
@@ -510,46 +549,104 @@
         display: flex;
       }
 
-      .cards,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
       .about-img {
         order: -1;
       }
+
       .line {
         padding-top: 200px;
-        width: 1120px;
+        width: 1020px;
+        border-radius: 00px;
+        height: 915px;
+        margin: -550px 0 -570px;
+      }
+      
+    @media(max-width:768px){
+      .about-content h2 {
+        margin-top: -50px;
+        font-size: 1.8rem;
+      }
+
+      .back-top {
+        right: 25px;
+        bottom: 85px;
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 67px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 4%;
+        gap: 18px;
+        display: none;
+        box-shadow: var(--shadow);
+      }
+      .price1{
+        color: black;
+        font-size: 1.2rem;
+        font-weight: 900;
+        margin: 14px 0;
+      }
+      .add-on-cards{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:24px;
+      }
+      .add-on-cards h3{
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+      .add-on-cards .card{
+        font-size: 13px;
+        padding: 30px;
+      }
+      
+      .cards{
+        font-size: small;
+        align-items: center;
+        display:grid;
+        grid-template-columns:repeat(2, 1fr);
+        gap:24px;
+        margin-left: 0px;
+      }
+      .line{
+        padding-top: 200px;
+        width: 1020px;
         border-radius: 00px;
         height: 935px;
-        display: block;
+        margin: -550px 0 -570px;
       }
-    }
-    @media(max-width:768px){
-      .line{
-        width: 80vw;
-        height: auto;
-        margin: -350px 0 -50px;
-      }
-    }
+      .background{
+        width: 100vw;
+        height: 1000px;
+        margin-top: -80px;
+        margin-left:50%;
+        transform:translateX(-50%);
 
-
-    @media (max-width: 520px) {
-      
-      section {
-        padding: 60px 0;
+        background-image:url("bg_gold.png");
+        background-size:cover;
+        background-position:center;
+        background-repeat:repeat;
       }
 
-      .hero {
-        padding: 60px 0;
+      .banner{
+        width: 124%;
+        height:clamp(292px, 9014vw, 920px);
+        background-image:url("banner.png");
+        background-position:center 64%;
+        background-size:contain;
+        background-repeat:no-repeat;
+        margin: -556px 50% -220px;
+        z-index: 999;
       }
-      .card,
-      form {
-        padding: 24px;
-      }
-      
     }
+}
   </style>
 </head>
 <body>
@@ -579,8 +676,10 @@
       </div>
     </section>
     <section id="services">
-      <div class="container">
-        <div class="section-title">    <br>    <br>    <br>
+      <div class="container">\
+      <div class="cards-top">
+      <div class="background">
+        <div class="section-title"><br><br><br><br><br><br><br>
           <h2>Our Cleaning Services</h2>
           <p>From regular house cleans to deep cleans and office cleaning, we make your place feel brand new.</p>
         </div>
@@ -596,6 +695,7 @@
             <div class="icon">✨</div>
             <h3>Deep Cleaning</h3>
             <p>A detailed top-to-bottom clean for move-ins, move-outs, inspections, or when your home needs extra love.</p>
+          <br>
           </article>
 
           <article class="card">
@@ -603,7 +703,9 @@
             <h3>Office Cleaning</h3>
             <p>Clean, professional workspaces for small businesses, offices, shops, and shared commercial areas.</p>
           </article>
+          </div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -625,8 +727,8 @@
       </div>
     </section>
 
-    <section class="prices" id="prices">    <br>    <br>    <br>
-      <div class="container">
+    <section class="prices" id="prices">
+      <div class="container"><br><br>
         <div class="section-title">
           <h2>Grand Opening Special</h2>
           <p>Take advantage of our limited-time offer and get a deep clean at a discounted rate!</p>
@@ -634,12 +736,12 @@
 
         <div class="cards">
           <article class="card price-card">
-        <h3>Deep Clean</h3>
+        <h3>Deep Clean - 2 Bedrooms 1 Bathrooms</h3>
 
-        <div class="price">
-        <span class="old-price">was $260</span>
-        Now $240
-        </div>
+          <div class="price">
+          <span class="old-price">was $260</span>
+          <span class="new-price">Now $240</span>
+          </div>
 
         <p>
           Full deep clean for a 2 bedroom, 1 bathroom home.
@@ -654,11 +756,11 @@
         </ul>
       </article>
       <article class="card price-card">
-        <h3>Deep Clean</h3>
+        <h3>Deep Clean - 3 Bedrooms 1 Bathrooms</h3>
 
         <div class="price">
-        <span class="old-price">was $300</span>
-        Now $280
+          <span class="old-price">was $300</span>
+          <span class="new-price">Now $280</span>
         </div>
 
         <p>
@@ -674,11 +776,11 @@
         </ul>
       </article>
       <article class="card price-card">
-        <h3>Deep Clean</h3>
+        <h3>Deep Clean - 3 Bedrooms 2 Bathrooms</h3>
 
         <div class="price">
-        <span class="old-price">was $340</span>
-        Now $320
+          <span class="old-price">was $340</span>
+          <span class="new-price">Now $320</span>
         </div>
 
         <p>
@@ -693,12 +795,12 @@
           <li>Detailed deep cleaning</li>
         </ul>
       </article>
-      <article class="card price-card">
-        <h3>Deep Clean</h3>
+      <article class="card price-card" style="margin-top: 18px;">
+        <h3>Deep Clean - 4 Bedrooms 2 Bathrooms</h3>
 
         <div class="price">
-        <span class="old-price">was $380</span>
-        Now $360
+          <span class="old-price">was $300</span>
+          <span class="new-price">Now $280</span>
         </div>
 
         <p>
@@ -714,14 +816,18 @@
         </ul>
       </article>
         </div>
-          <br>
-      <!-- Line to show different sections -->
+         <p style="margin-top: 30px; margin-left: 30px; font-size: 0.9rem; color: #475569;">*Prices are for deep cleans only. Regular cleaning prices vary based on the size of the home and the frequency of cleaning. Contact us for a personalized quote based on your specific needs.</p>
+          
+
+<!-- Line to show different sections -->
+
       <div style="display:flex; justify-content:center; margin: 60px 0;">
-          <img src="back_trans.png" class="line" alt="gold line">
+          <img src="line4.png" class="line" alt="gold line">
           <br> 
       </div>
-      <!-- start new section -->
-      <br><br><br>
+
+<!-- start new section -->
+
       <div class="container">
 
     <div class="section-title">
@@ -733,13 +839,13 @@
       </p>
     </div>
     <br>
-    <div class="cards">
+    <div class="add-on-cards">
 
       <article class="card price-card">
         <h3>Oven Clean</h3>
         <br>
 
-        <div class="price">
+        <div class="price1">
           From $80
         </div>
         <br>
@@ -753,7 +859,7 @@
         <h3>Plantation Shutters</h3>
         <br>
 
-        <div class="price">
+        <div class="price1">
           From $40
         </div>
         <br>
@@ -766,7 +872,7 @@
         <h3>Heavy Grout Build-Up / Grout Restoration</h3>
         
 
-        <div class="price">
+        <div class="price1">
           From $50
         </div>
         <br>
@@ -779,7 +885,7 @@
         <h3>Interior Windows</h3>
         
 
-        <div class="price">
+        <div class="price1">
           From $60
         </div>
         <br>
@@ -792,7 +898,7 @@
         <h3>Wall Spot Cleaning</h3>
         
 
-        <div class="price">
+        <div class="price1">
           From $40
         </div>
         <br>
@@ -801,14 +907,28 @@
           A detailed clean for your walls to get rid of scuff marks, stains, and fingerprints and restore them to their original look.
         </p>
       </article>
+      <article class="card price-card">
+        <h3>Balcony / Outdoor Area Reset</h3>
+        
 
+        <div class="price1">
+          From $60
+        </div>
+        <br>
+
+        <p>
+          A detailed clean for your balcony or outdoor area to get rid of dirt, debris, and stains and restore it to its original look.
+        </p>
+      </article>
     </div>
+               <p style="margin-top: 60px; margin-left: 30px; font-size: 0.9rem; color: #475569;">*Prices are for add-on services only. Regular cleaning prices vary based on the size of the home and the frequency of cleaning. Contact us for a personalized quote based on your specific needs.</p>
 
   </div>
     </section>
 
           <section class="contact" id="contact">
             <div class="container">
+              <div class="banner"></div>
               <div class="section-title">
                 <h2>Get Your Free Quote</h2>
                 <p>Send us your details and we will get back to you as soon as possible.</p>
@@ -930,10 +1050,8 @@
     formMessage.textContent = "Network error.";
     formMessage.style.color = "#dc2626";
   }
-
-});
-
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    });
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 </body>
 </html>
