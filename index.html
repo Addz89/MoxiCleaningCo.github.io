@@ -461,18 +461,37 @@
       text-align: center;
       padding: 28px 0;
     }
-    .banner{
-      width: 130%;
-      height:clamp(292px, 9014vw, 920px);
-      background-image:url("banner.png");
-      background-position:center 64%;
-      background-size:contain;
-      background-repeat:no-repeat;
-      margin: -377px 50% 0;
-      transform:translateX(-50%);
-      display: grid;
-      justify-content: center;
+.banner{
+  width:100%;
+  max-width:1800px;
+  height:350px;
 
+  background-image:url("banner.png");
+  background-position:center;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+
+  margin:-80px auto 40px;
+
+  display:block;
+}
+
+
+.opening img{
+  width:100%;
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin-bottom: -200px;
+}
+    /* Deep Background */
+    .deep{
+      width: 70%;
+      height: 70%;
+      margin-top: -150px;
+      margin-bottom: -200px;
+      margin-left:50%;
+      transform:translateX(-50%);
     }
     .back-top{
       background:url("arrowup.gif") center/contain no-repeat;
@@ -509,7 +528,7 @@
     html,
 body{
   max-width:100%;
-  overflow-x:hidden;
+  /* overflow-x:hidden; */
 }
 
 *{
@@ -523,103 +542,118 @@ iframe{
 }
 
     @media (max-width:850px){
+      .opening img{
+        width:100%;
+        max-width:100%;
+        height:auto;
+        display:block;
+        margin-bottom: -110px;
 
-  .logo img{
-    width:120px;
-    height:auto;
-  }
+      }
+      .deep{
+        margin-top: -10px;
+        margin-bottom: -90px;
+      }
 
-  .menu-btn{
-    font-size:30px;
-    font-weight:200;
-    display:block;
-  }
+      .logo img{
+        width:120px;
+        height:auto;
+      }
 
-  .nav-links{
-    position:absolute;
-    top:67px;
-    left:0;
-    right:0;
-    background:var(--white);
-    flex-direction:column;
-    align-items:flex-start;
-    padding:14px 4%;
-    gap:18px;
-    display:none;
-    box-shadow:var(--shadow);
-  }
+      .menu-btn{
+        font-size:30px;
+        font-weight:200;
+        display:block;
+      }
 
-  .nav-links.active{
-    display:flex;
-  }
+      .nav-links{
+        position:absolute;
+        top:67px;
+        left:0;
+        right:0;
+        background:var(--white);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:14px 4%;
+        gap:18px;
+        display:none;
+        box-shadow:var(--shadow);
+      }
 
-  .cards{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:18px;
-    width:100%;
-    max-width:100%;
-    margin:0;
-  }
+      .nav-links.active{
+        display:flex;
+      }
 
-  .card{
-    width:100%;
-    padding:22px;
-  }
+      .cards{
+        display:grid;
+        grid-template-columns:repeat(2, 1fr);
+        gap:18px;
+        width:100%;
+        max-width:100%;
+        margin:0;
+      }
 
-  .background,
-  .hero,
-  .line,
-  .banner{
-    width:100%;
-    max-width:100%;
-    margin-left:0;
-    transform:none;
-  }
+      .card{
+        width:100%;
+        padding:22px;
+      }
 
-  .line{
-    height:auto;
-    padding-top:0;
-    margin:30px auto;
-  }
+      .background,
+      .hero{
+        width:100%;
+        max-width:100%;
+        margin-left:0;
+        transform:none;
+      }
 
-  .banner{
-    height:160px;
-    background-image:url("banner.png");
-    background-position:center;
-    background-size:contain;
-    background-repeat:no-repeat;
-    margin:30px 0;
-  }
+        .line{
+          padding-bottom: -400px;
+          padding-top:0;
+          margin:30px auto;
+        }
 
-  .about-img{
-    order:-1;
-  }
+        .banner{
+          width:123%;
+          max-width:490px;
+          height:170px;
+          margin-left: -52px;
+          background-image:url("banner.png");
+          background-position:center;
+          background-size:100% 100%;
+          background-repeat:no-repeat;
+          margin-top: -70px;
+          margin-left: -22px;
+        }
 
-  .about-content h2{
-    margin-top:-50px;
-    font-size:1.8rem;
-  }
+      .about-img{
+        order:-1;
+      }
 
-  .back-top{
-    right:25px;
-    bottom:85px;
-    width:38px;
-    height:38px;
-  }
+      .about-content h2{
+        margin-top:-50px;
+        font-size:1.8rem;
+      }
 
-  .price1{
-    font-size:1.2rem;
-  }
+      .back-top{
+        right:25px;
+        bottom:85px;
+        width:38px;
+        height:38px;
+      }
 
-  .add-on-cards{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-}
+      .price1{
+        font-size:1.2rem;
+      }
+
+      .add-on-cards{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:24px;
+      }
+    }
 
 @media (max-width:520px){
+  
 
   .cards{
     grid-template-columns:1fr;
@@ -706,9 +740,12 @@ iframe{
     <section class="prices" id="prices">
       <div class="container"><br><br>
         <div class="section-title">
-          <h2>Grand Opening Special</h2>
+          <div class="opening"> <img src="opening.png" alt=""> </div> <br><br>
           <p>Take advantage of our limited-time offer and get a deep clean at a discounted rate!</p>
+          
+          <div class="deep"> <img src="deep1.png" alt=""> </div>
         </div>
+        
 
         <div class="cards">
           <article class="card price-card">
@@ -775,8 +812,8 @@ iframe{
         <h3>Deep Clean - 4 Bedrooms 2 Bathrooms</h3>
 
         <div class="price">
-          <span class="old-price">was $300</span>
-          <span class="new-price">Now $280</span>
+          <span class="old-price">was $380</span>
+          <span class="new-price">Now $360</span>
         </div>
 
         <p>
