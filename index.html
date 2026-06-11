@@ -692,6 +692,45 @@ header{
   background: #9f6d40;
   transform: translateY(-2px);
 }
+.visitor-counter{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:70px 20px;
+  background:#F3ECE4;
+}
+
+.counter-label{
+  font-size:13px;
+  letter-spacing:4px;
+  font-weight:700;
+  color:#ad7f4e;
+  margin-bottom:18px;
+}
+
+.counter-box{
+  background:linear-gradient(
+    180deg,
+    #c89b67 0%,
+    #b07d4a 100%
+  );
+
+  padding:18px 35px;
+  border-radius:6px;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.12),
+    inset 0 1px 2px rgba(255,255,255,0.35);
+}
+
+.counter-box span{
+  font-size:42px;
+  font-weight:700;
+  letter-spacing:8px;
+  color:white;
+  font-family:'Montserrat', sans-serif;
+}
 
 /* Tablet */
 
@@ -1117,7 +1156,7 @@ grid-template-columns: repeat(2, 1fr);
   }
   .price-card {
 
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(2, 1fr);
     width:100%;
     height:100%;
     gap:10px;
@@ -1130,10 +1169,11 @@ grid-template-columns: repeat(2, 1fr);
   }
   .service-cards{
     grid-template-columns: repeat(2, 1fr);
-    gap:0px;
-    padding-top: 70px 0;
+    gap:20px;
     width:100%;
-    margin:0;
+
+
+    row-gap:50px;
   }
     }
   </style>
@@ -1496,6 +1536,13 @@ grid-template-columns: repeat(2, 1fr);
   <p id="formMessage"></p>
 </form>
       </div>
+          <div class="visitor-counter">
+  <span class="counter-label">VISITORS</span>
+
+  <div class="counter-box">
+    <span id="visitCount">000000</span>
+  </div>
+</div>
     </section>
   </main>
 
@@ -1506,9 +1553,10 @@ grid-template-columns: repeat(2, 1fr);
     </div>
   </footer>
 
-  <button class="back-top" id="backTop" aria-label="Back to top"></button>
+
 
   <script>
+    
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
     const backTop = document.getElementById("backTop");
@@ -1543,6 +1591,7 @@ grid-template-columns: repeat(2, 1fr);
 
     quoteForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  
 
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
@@ -1587,6 +1636,75 @@ grid-template-columns: repeat(2, 1fr);
   }
     });
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  increment
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCFQVfqd_FZjY8M0v3kGk8jvbXR64eU9rA",
+  authDomain: "moxi-cleaning-counter.firebaseapp.com",
+  projectId: "moxi-cleaning-counter",
+  storageBucket: "moxi-cleaning-counter.firebasestorage.app",
+  messagingSenderId: "83600285765",
+  appId: "1:83600285765:web:783e4b08fa790eef0cc32c"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const counterRef = doc(db, "siteStats", "visits");
+
+async function updateCounter() {
+
+  const counterElement =
+    document.getElementById("visitCount");
+
+  try {
+
+    const snap = await getDoc(counterRef);
+
+    if (!snap.exists()) {
+
+      await setDoc(counterRef, {
+        count: 1
+      });
+
+      counterElement.textContent = "000001";
+
+    } else {
+
+      await updateDoc(counterRef, {
+        count: increment(1)
+      });
+
+      const updatedSnap = await getDoc(counterRef);
+
+      const count = updatedSnap.data().count;
+
+      counterElement.textContent =
+        String(count).padStart(6, "0");
+    }
+
+  } catch(error) {
+
+    console.error(error);
+
+    counterElement.textContent = "ERROR";
+  }
+}
+
+updateCounter();
+
 </script>
 </body>
 </html>
