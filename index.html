@@ -785,7 +785,7 @@ header{
 }
 
 .divider span{
-  width:70px;
+  width:380px;
   height:1px;
   background:#d4b08a;
 }
@@ -793,7 +793,7 @@ header{
   background:#F3ECE4;
   padding:55px 24px;
   text-align:center;
-  max-width:1100px;
+  max-width:1500px;
   margin:auto;
 }
 
@@ -817,10 +817,10 @@ header{
 
 .service-text h3{
   font-family:Georgia, serif;
-  font-size:32px;
-  font-weight:400;
-  margin:0 0 8px;
-  color:#b88954;
+  font-size:39px;
+  font-weight:600;
+  margin:0 0 2px;
+  color:var(--black);
 }
 
 .plus{
@@ -903,6 +903,9 @@ header{
   padding-left:18px;
   color:#666;
   line-height:1.8;
+}
+.service-content ul li::marker{
+  color:#B98952;
 }
 
 .service-item.active .service-content{
@@ -1056,6 +1059,12 @@ iframe{
   line-height:1.8;
   color:#333;
   margin-bottom:35px;
+}
+.service-content ul li{
+  font-size:14px;
+  color:#666;
+  line-height:1.8;
+  text-align:left;
 }
 
 .service-card a{
@@ -1393,6 +1402,45 @@ grid-template-columns: repeat(2, 1fr);
   font-weight: 700;
   margin-bottom: -18px;
 }
+.service-mobile h2{
+    font-size:38px;
+  }
+
+  .service-btn{
+    grid-template-columns:80px 1fr 30px;
+  }
+
+  .service-text h3{
+    font-size:17px;
+    align-items:left;
+     display:flex;
+     gap:8px;
+  }
+
+  .icon{
+    width:38px;
+    height:38px;
+  }
+
+  .service-content{
+    padding-left:10px;
+  }
+.service-content ul li::marker{
+  color:#B98952;
+}
+.service-content ul li{
+  font-size:14px;
+  color:#666;
+  line-height:1.8;
+  text-align:left;
+}
+
+.plus{
+  font-size:28px;
+  color:#b88954;
+  font-weight:300;
+  transition:.3s;
+}
 }
 
   </style>
@@ -1449,7 +1497,7 @@ grid-template-columns: repeat(2, 1fr);
         <div class="service-icon">✦</div>
         <h3>DEEP CLEANS</h3>
         <p>A thorough, top-to-bottom clean to refresh your entire home.</p>
-        <a href="#prices">LEARN MORE →</a>
+        <a href="#deep-clean">LEARN MORE →</a>
       </div>
 
       <div class="service-card">
@@ -1544,11 +1592,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛁</div>
+        <div class="icon"><img src="bathrooms_icon.png" alt="Bathroom Icon"></div>
 
         <div class="service-text">
           <h3>BATHROOMS & TOILETS</h3>
-          <p>Showers, baths, toilets, vanities, grout, tapware and more.</p>
+          <!-- <p>Showers, baths, toilets, vanities, grout, tapware and more.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1570,11 +1618,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🍳</div>
+        <div class="icon"><img src="kitchen_icon.png" alt="Kitchen Icon"></div>
 
         <div class="service-text">
           <h3>KITCHEN</h3>
-          <p>Benchtops, splashbacks, sink, appliances and more.</p>
+          <!-- <p>Benchtops, splashbacks, sink, appliances and more.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1596,11 +1644,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛏️</div>
+        <div class="icon"><img src="bedroom_icon.png" alt="Bedroom Icon"></div>
 
         <div class="service-text">
           <h3>BEDROOMS</h3>
-          <p>Dusting, furniture, window sills and mirrors.</p>
+          <!-- <p>Dusting, furniture, window sills and mirrors.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1621,11 +1669,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛏️</div>
+        <div class="icon"><img src="floor_icon.png" alt="Floors Icon"></div>
 
         <div class="service-text">
           <h3>FLOORS</h3>
-          <p>Thorough cleaning of all floor types, including carpets, hardwood, tile, and more.</p>
+          <!-- <p>Thorough cleaning of all floor types, including carpets, hardwood, tile, and more.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1647,11 +1695,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛏️</div>
+        <div class="icon"><img src="general_icon.png" alt="Detailed Cleaning Icon"></div>
 
         <div class="service-text">
           <h3>GENERAL DETAILED CLEANING</h3>
-          <p>A comprehensive clean that covers all areas of your home, ensuring every corner is spotless.</p>
+          <!-- <p>A comprehensive clean that covers all areas of your home, ensuring every corner is spotless.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1703,11 +1751,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛁</div>
+        <div class="icon"><img src="bathrooms_icon.png" alt="Bathroom Icon"></div>
 
         <div class="service-text">
           <h3>BATHROOMS & TOILETS</h3>
-          <p>Showers, baths, toilets, vanities, grout, tapware and more.</p>
+          <!-- <p>Showers, baths, toilets, vanities, grout, tapware and more.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1729,11 +1777,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🍳</div>
+        <div class="icon"><img src="kitchen_icon.png" alt="Kitchen Icon"></div>
 
         <div class="service-text">
           <h3>KITCHEN</h3>
-          <p>Benchtops, splashbacks, sink, appliances and more.</p>
+          <!-- <p>Benchtops, splashbacks, sink, appliances and more.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1755,11 +1803,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛏️</div>
+        <div class="icon"><img src="bedroom_icon.png" alt="Bedroom Icon"></div>
 
         <div class="service-text">
           <h3>BEDROOMS</h3>
-          <p>Dusting, furniture, window sills and mirrors.</p>
+          <!-- <p>Dusting, furniture, window sills and mirrors.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1780,11 +1828,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛏️</div>
+        <div class="icon"><img src="floor_icon.png" alt="Floors Icon"></div>
 
         <div class="service-text">
           <h3>FLOORS</h3>
-          <p>Thorough cleaning of all floor types, including carpets, hardwood, tile, and more.</p>
+          <!-- <p>Thorough cleaning of all floor types, including carpets, hardwood, tile, and more.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -1806,11 +1854,11 @@ grid-template-columns: repeat(2, 1fr);
     <div class="service-item">
 
       <button class="service-btn">
-        <div class="icon">🛏️</div>
+        <div class="icon"><img src="general_icon.png" alt="Detailed Cleaning Icon"></div>
 
         <div class="service-text">
           <h3>GENERAL DETAILED CLEANING</h3>
-          <p>A comprehensive clean that covers all areas of your home, ensuring every corner is spotless.</p>
+          <!-- <p>A comprehensive clean that covers all areas of your home, ensuring every corner is spotless.</p> -->
         </div>
 
         <span class="plus">+</span>
@@ -2090,7 +2138,7 @@ grid-template-columns: repeat(2, 1fr);
   <footer>
     <div class="container">
       <p>© <span id="year"></span> Moxi Cleaning Co. All rights reserved.</p>
-      <p> Email: support@moxicleaningco.com.au</p>
+      <p> Email: info@moxicleaningco.com.au</p>
     </div>
   </footer>
 <script>
@@ -2105,7 +2153,7 @@ document.querySelectorAll(".service-item").forEach(item => {
 });
 </script>
 <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 
 
