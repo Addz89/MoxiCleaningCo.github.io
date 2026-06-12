@@ -16,9 +16,9 @@
 
   <meta name="description" content="Professional house cleaning services in Melbourne. Deep cleans, maintenance cleaning, end of lease cleaning and more.">
 
-<link rel="icon" type="image/png" href="/weblogo.png">
-<link rel="shortcut icon" href="/weblogo.png">
-<link rel="apple-touch-icon" href="/weblogo.png">
+<link rel="icon" type="image/png" href="weblogo.png">
+<link rel="shortcut icon" href="weblogo.png">
+<link rel="apple-touch-icon" href="weblogo.png">
 
   <script type="application/ld+json">
   {
@@ -451,7 +451,7 @@ header{
 
 .about-content{
   position:absolute;
-  top:50%;
+  font-size :1.1rem;
   right:8%;
   transform:translateY(-50%);
   
@@ -460,12 +460,12 @@ header{
   /* background:rgba(255,255,255,0.75); */
   backdrop-filter:blur(4px);
 
-  padding:50px;
+  padding:20px;
   border-radius:8px;
 }
 
 .about-content h2{
-  font-size:clamp(2rem,4vw,5rem);
+  font-size:clamp(1rem,3vw,1.5rem);
   color:#1d1d1d;
 }
 
@@ -755,6 +755,164 @@ header{
   font-family:'Montserrat', sans-serif;
 }
 
+/* dropdown */
+.service-mobile{
+  background:#F3ECE4;
+  padding:55px 24px;
+  text-align:center;
+}
+
+.small-title{
+  color:#b88954;
+  letter-spacing:2px;
+  font-weight:600;
+}
+
+.service-mobile h2{
+  font-family:Georgia, serif;
+  font-size:42px;
+  font-weight:400;
+  color:#b88954;
+}
+
+.divider{
+  color:#b88954;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin:25px 0;
+}
+
+.divider span{
+  width:70px;
+  height:1px;
+  background:#d4b08a;
+}
+.service-mobile{
+  background:#F3ECE4;
+  padding:55px 24px;
+  text-align:center;
+  max-width:1100px;
+  margin:auto;
+}
+
+.service-list{
+  max-width:1000px;
+  margin:60px auto 0;
+}
+
+.service-btn{
+  width:100%;
+  display:grid;
+  grid-template-columns:90px 1fr 40px;
+  gap:20px;
+  align-items:center;
+  background:none;
+  border:0;
+  padding:28px 0;
+  text-align:left;
+  cursor:pointer;
+}
+
+.service-text h3{
+  font-family:Georgia, serif;
+  font-size:32px;
+  font-weight:400;
+  margin:0 0 8px;
+  color:#b88954;
+}
+
+.plus{
+  font-size:38px;
+  color:#b88954;
+  font-weight:300;
+  transition:.3s;
+}
+
+.service-item.active .plus{
+  transform:rotate(45deg);
+}
+
+
+.intro{
+  max-width:520px;
+  margin:0 auto 45px;
+  color:#777;
+  line-height:1.8;
+}
+
+.service-item{
+  border-bottom:1px solid #e8ded5;
+}
+
+.service-btn{
+  width:100%;
+  display:grid;
+  grid-template-columns:90px 1fr 30px;
+  gap:20px;
+  align-items:center;
+  background:none;
+  border:0;
+  padding:24px 0;
+  text-align:left;
+  cursor:pointer;
+}
+
+.icon{
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  background:#f4eee9;
+  color:#b88954;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+}
+
+.service-btn h3{
+  font-family:Georgia, serif;
+  font-size:24px;
+  font-weight:400;
+  margin:0 0 8px;
+}
+
+.service-btn p{
+  margin:0;
+  color:#777;
+  line-height:1.5;
+}
+
+.service-btn b{
+  font-size:34px;
+  color:#b88954;
+  font-weight:300;
+  transition:.3s;
+}
+
+.service-content{
+  max-height:0;
+  overflow:hidden;
+  transition:.35s ease;
+  padding-left:110px;
+}
+
+.service-content ul{
+  margin:0 0 25px;
+  padding-left:18px;
+  color:#666;
+  line-height:1.8;
+}
+
+.service-item.active .service-content{
+  max-height:300px;
+}
+
+.service-item.active .service-btn b{
+  transform:rotate(45deg);
+}
+
 /* Tablet */
 
 
@@ -996,6 +1154,11 @@ iframe{
     width: fit-content;
     padding: 16px 28px;
   }
+  .plus{
+  font-size:42px;
+  color:#b8834e;
+  transition:.3s;
+}
 
 
 @media(max-width:900px){
@@ -1168,19 +1331,15 @@ grid-template-columns: repeat(2, 1fr);
 @media (max-width:520px){
   .add-on-cards{
     grid-template-columns: repeat(2, 1fr);
-    gap:100px;
+    gap:10px;
     padding-top: 20px 0;
-    width:70%;
+    width:100%;
     margin:0;
   }
 
   .cards{
-  
-
     grid-template-columns: repeat(2, 1fr);
     gap:50px;
-
-
   }
   .section-title {
     text-align:center;
@@ -1191,10 +1350,7 @@ grid-template-columns: repeat(2, 1fr);
     width:100%;
     height:100%;
     gap:10px;
-
-
     display:ruby-base-container;
-
     align-items:center;
     padding:22px;
   }
@@ -1203,16 +1359,42 @@ grid-template-columns: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     gap:0px;
     width:100%;
-
-
     row-gap:50px;
   }
   .service-card{
     width:100%;
     padding:22px;
   }
-  
-    }
+  .about-content{
+    height: 230px;
+    position:absolute;
+    top:50%;
+    right:5%;
+    transform:translateY(-50%);
+    width:90%;
+    padding:20px;
+    /* background:rgba(255,255,255,0.72); */
+    backdrop-filter:blur(1px);
+    border-radius:3px;
+  }
+  .about-content h2{
+  margin-bottom:10px;
+  font-size:clamp(1.5rem,3vw,2rem);
+  color:#1d1d1d;
+
+}
+.about-content p{
+  font-size:1.1rem;
+  line-height:1.5;
+  color:#444;
+}
+.ticks li {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: -18px;
+}
+}
+
   </style>
 </head>
 <body>
@@ -1233,8 +1415,10 @@ grid-template-columns: repeat(2, 1fr);
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
         <a href="#about">About</a>
+        <a href="#deep-clean">Deep Cleans</a>
         <a href="#prices">Prices</a>
         <a href="#contact" class="quote-btn">Get a Quote</a>
+        
       </nav>
     </div>
   </header>
@@ -1295,7 +1479,7 @@ grid-template-columns: repeat(2, 1fr);
 </section>
 
 <section class="about-section">
-<img src="familybanner.png" alt="">
+<img src="" alt="">
   <div class="about-img">
     
   </div>
@@ -1312,7 +1496,7 @@ grid-template-columns: repeat(2, 1fr);
         </div>
       </div>
     </section>
-    <section class="prices" id="prices">
+    <section class="deepcleans" id="prices">
 <section class="opening">
   <img src="banner1.png" alt="Cleaning products" class="opening-bg">
 
@@ -1330,14 +1514,331 @@ grid-template-columns: repeat(2, 1fr);
 </section>
       <div class="container">
         <div class="section-title">
-           
+          <br><br><br>
           <p>Take advantage of our limited-time offer and get a deep clean at a discounted rate!</p>
-          
-          <div class="deep"> <img src="deep1.png" alt=""> </div>
         </div>
+    <!-- <div class="section-title">
+      <h2>DEEP CLEANS</h2>
+      <span></span>
+    </div> -->
         
 
-      <div class="cards">
+
+<!-- Detailed Service Information -->
+<section id="deep-clean" class="service-mobile deep-clean">
+
+  <p class="small-title"></p>
+  <h2>INITIAL DEEP CLEAN</h2>
+
+  <div class="divider">
+    <span></span>✦<span></span>
+  </div>
+
+  <p class="intro">
+    A thorough top-to-bottom clean designed to refresh your home and leave every space feeling spotless, fresh and renewed.
+  </p>
+
+  <div class="service-list">
+
+    <!-- ITEM 1 -->
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛁</div>
+
+        <div class="service-text">
+          <h3>BATHROOMS & TOILETS</h3>
+          <p>Showers, baths, toilets, vanities, grout, tapware and more.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Toilets cleaned and sanitised</li>
+          <li>Showers and baths cleaned</li>
+          <li>Mirrors polished</li>
+          <li>Tapware cleaned and polished</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <!-- ITEM 2 -->
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🍳</div>
+
+        <div class="service-text">
+          <h3>KITCHEN</h3>
+          <p>Benchtops, splashbacks, sink, appliances and more.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Benchtops cleaned</li>
+          <li>Splashbacks cleaned</li>
+          <li>Sink cleaned and sanitised</li>
+          <li>Appliances wiped down</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <!-- ITEM 3 -->
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛏️</div>
+
+        <div class="service-text">
+          <h3>BEDROOMS</h3>
+          <p>Dusting, furniture, window sills and mirrors.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Dusting surfaces</li>
+          <li>Furniture wiped down</li>
+          <li>Mirrors cleaned</li>
+          <li>Window sills cleaned</li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- ITEM 4 -->
+
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛏️</div>
+
+        <div class="service-text">
+          <h3>FLOORS</h3>
+          <p>Thorough cleaning of all floor types, including carpets, hardwood, tile, and more.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Floors vacuumed and mopped</li>
+          <li>Carpets extracted and cleaned</li>
+          <li>Hardwood floors polished</li>
+          <li>Tile floors scrubbed and sealed</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ITEM 5 -->
+
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛏️</div>
+
+        <div class="service-text">
+          <h3>GENERAL DETAILED CLEANING</h3>
+          <p>A comprehensive clean that covers all areas of your home, ensuring every corner is spotless.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Skirting boards cleaned throughout</li>
+          <li>Carpets extracted and cleaned</li>
+          <li>Light fixtures cleaned</li>
+          <li>Dusting of accessible surfaces</li>
+          <li>Window sills cleaned</li>
+          <li>Doors and door frames cleaned</li>
+          <li>Air vents cleaned</li>
+          <li>TV screens cleaned, including fingerprint removal</li>
+          <li>Furniture and hard surfaces wiped down</li>
+          <li>Cobwebs removed from corners and ceilings</li>
+          
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  
+</section>
+<br>
+<span></span>
+
+<!-- Builders cleans -->
+
+<section class="service-mobile">
+
+  <p class="small-title"></p>
+  <h2>BUILDERS CLEANS</h2>
+
+  <div class="divider">
+    <span></span>✦<span></span>
+  </div>
+
+  <p class="intro">
+    A thorough top-to-bottom clean designed to refresh your home and leave every space feeling spotless, fresh and renewed.
+  </p>
+
+  <div class="service-list">
+
+    <!-- ITEM 1 -->
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛁</div>
+
+        <div class="service-text">
+          <h3>BATHROOMS & TOILETS</h3>
+          <p>Showers, baths, toilets, vanities, grout, tapware and more.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Toilets cleaned and sanitised</li>
+          <li>Showers and baths cleaned</li>
+          <li>Mirrors polished</li>
+          <li>Tapware cleaned and polished</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <!-- ITEM 2 -->
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🍳</div>
+
+        <div class="service-text">
+          <h3>KITCHEN</h3>
+          <p>Benchtops, splashbacks, sink, appliances and more.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Benchtops cleaned</li>
+          <li>Splashbacks cleaned</li>
+          <li>Sink cleaned and sanitised</li>
+          <li>Appliances wiped down</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <!-- ITEM 3 -->
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛏️</div>
+
+        <div class="service-text">
+          <h3>BEDROOMS</h3>
+          <p>Dusting, furniture, window sills and mirrors.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Dusting surfaces</li>
+          <li>Furniture wiped down</li>
+          <li>Mirrors cleaned</li>
+          <li>Window sills cleaned</li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- ITEM 4 -->
+
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛏️</div>
+
+        <div class="service-text">
+          <h3>FLOORS</h3>
+          <p>Thorough cleaning of all floor types, including carpets, hardwood, tile, and more.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Floors vacuumed and mopped</li>
+          <li>Carpets extracted and cleaned</li>
+          <li>Hardwood floors polished</li>
+          <li>Tile floors scrubbed and sealed</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- ITEM 5 -->
+
+    <div class="service-item">
+
+      <button class="service-btn">
+        <div class="icon">🛏️</div>
+
+        <div class="service-text">
+          <h3>GENERAL DETAILED CLEANING</h3>
+          <p>A comprehensive clean that covers all areas of your home, ensuring every corner is spotless.</p>
+        </div>
+
+        <span class="plus">+</span>
+      </button>
+
+      <div class="service-content">
+        <ul>
+          <li>Skirting boards cleaned throughout</li>
+          <li>Carpets extracted and cleaned</li>
+          <li>Light fixtures cleaned</li>
+          <li>Dusting of accessible surfaces</li>
+          <li>Window sills cleaned</li>
+          <li>Doors and door frames cleaned</li>
+          <li>Air vents cleaned</li>
+          <li>TV screens cleaned, including fingerprint removal</li>
+          <li>Furniture and hard surfaces wiped down</li>
+          <li>Cobwebs removed from corners and ceilings</li>
+          
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  
+</section>
+      <!-- <div class="cards">
           <article class="card price-card">
         <h3>1. Deep Clean - 2 Bedrooms 1 Bathrooms</h3>
 
@@ -1398,7 +1899,7 @@ grid-template-columns: repeat(2, 1fr);
         </p>
 
 
-      </article>
+      </article> -->
         </div>
          <p style="margin-top: 30px; margin-left: 30px; font-size: 0.9rem; color: #475569;">*Prices are for deep cleans only. Regular cleaning prices vary based on the size of the home and the frequency of cleaning. Contact us for a personalized quote based on your specific needs.</p>
           
@@ -1406,16 +1907,19 @@ grid-template-columns: repeat(2, 1fr);
 <!-- Line to show different sections -->
 
       <div style="display:flex; justify-content:center; margin: 60px 0;">
-          <img src="line4.png" class="line" alt="gold line">
-          <br> 
+          
       </div>
+      <div class="section-title">
+      <h2>ADD-ON SERVICES</h2>
+      <span></span>
+    </div>
 
 <!-- start new section -->
 
       <div class="container">
 
     <div class="section-title">
-      <h2>Add-On Services</h2>
+      
 
       <p>
         Here are some add-ons you can include with your regular cleaning for a more thorough clean. 
@@ -1586,13 +2090,25 @@ grid-template-columns: repeat(2, 1fr);
   <footer>
     <div class="container">
       <p>© <span id="year"></span> Moxi Cleaning Co. All rights reserved.</p>
-      <p> Email: moxicleaningco@gmail.com</p>
+      <p> Email: support@moxicleaningco.com.au</p>
     </div>
   </footer>
+<script>
+document.querySelectorAll(".service-item").forEach(item => {
+
+  const btn = item.querySelector(".service-btn");
+
+  btn.addEventListener("click", () => {
+    item.classList.toggle("active");
+  });
+
+});
+</script>
 
 
 
   <script>
+    
     
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
