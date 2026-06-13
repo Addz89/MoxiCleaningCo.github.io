@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="weblogo.png">
+  <link rel="icon" type="image/png" href="/weblogo.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -10,9 +10,18 @@
 
   <title>Moxi Cleaning Co | Professional Cleaning Services</title>
 
-  <meta name="application-name" content="Moxi Cleaning Co">
-  <meta property="og:site_name" content="Moxi Cleaning Co">
-  <meta name="apple-mobile-web-app-title" content="Moxi Cleaning Co">
+  <!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/weblogo.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/weblogo.png">
+<link rel="apple-touch-icon" href="/weblogo.png">
+
+<!-- Theme -->
+<meta name="theme-color" content="#ffffff">
+
+<!-- SEO -->
+<meta name="application-name" content="Moxi Cleaning Co">
+<meta property="og:site_name" content="Moxi Cleaning Co">
+<meta name="apple-mobile-web-app-title" content="Moxi Cleaning Co">
 
   <meta name="description" content="Professional house cleaning services in Melbourne. Deep cleans, maintenance cleaning, end of lease cleaning and more.">
 
@@ -20,15 +29,16 @@
 <link rel="shortcut icon" href="weblogo.png">
 <link rel="apple-touch-icon" href="weblogo.png">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Moxi Cleaning Co",
-    "url": "https://www.moxicleaningco.com.au",
-    "logo": "https://www.moxicleaningco.com.au/weblogo.png"
-  }
-  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CleaningService",
+  "name": "Moxi Cleaning Co",
+  "url": "https://www.moxicleaningco.com.au",
+  "logo": "https://www.moxicleaningco.com.au/weblogo.png",
+  "image": "https://www.moxicleaningco.com.au/weblogo.png"
+}
+</script>
   <style>
     * {
       margin: 0;
@@ -1174,6 +1184,7 @@ iframe{
   .service-cards{
     grid-template-columns:repeat(2, 1fr);
   }
+  
 }
 
 @media(max-width:520px){
@@ -1181,6 +1192,7 @@ iframe{
     gap:10px;
     grid-template-columns:1fr;
   }
+  
 }
 
     @media (max-width:850px){
@@ -1335,9 +1347,18 @@ grid-template-columns: repeat(2, 1fr);
         grid-template-columns:1fr;
         gap:24px;
       }
+
+
     }
 
 @media (max-width:520px){
+      .service-content ul li{
+  font-size:1px;
+  color:#666;
+  line-height:1.8;
+  text-align:left;
+}
+
   .add-on-cards{
     grid-template-columns: repeat(2, 1fr);
     gap:10px;
@@ -1441,7 +1462,24 @@ grid-template-columns: repeat(2, 1fr);
   font-weight:300;
   transition:.3s;
 }
+.feature-item{
+  margin-left: 25px;
 }
+.features-bar{
+  width:100%;
+  background:#fff;
+  padding:40px 6%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+
+  border-top:1px solid #E6D8C8;
+  border-bottom:1px solid #E6D8C8;
+}
+}
+
 
   </style>
 </head>
@@ -2066,32 +2104,32 @@ grid-template-columns: repeat(2, 1fr);
             <div class="container">
               <div class="features-bar">
 
-  <div class="feature-item">
-    <img src="trust.png" alt="shield icon">
-    <span>RELIABLE &<br>TRUSTWORTHY</span>
-  </div>
+              <div class="feature-item">
+                <img src="trust.png" alt="shield icon">
+                <span>RELIABLE &<br>TRUSTWORTHY</span>
+              </div>
 
-  <div class="feature-item">
-    <img src="stars.png" alt="stars icon">
-    <span>ATTENTION<br>TO DETAIL</span>
-  </div>
+              <div class="feature-item">
+                <img src="stars.png" alt="stars icon">
+                <span>ATTENTION<br>TO DETAIL</span>
+              </div>
 
-  <div class="feature-item">
-    <img src="trust.png" alt="">
-    <span>FULLY<br>INSURED</span>
-  </div>
+              <div class="feature-item">
+                <img src="trust.png" alt="">
+                <span>FULLY<br>INSURED</span>
+              </div>
 
-  <div class="feature-item">
-    <img src="tail.png" alt="">
-    <span>TAILORED<br>CLEANING PLANS</span>
-  </div>
+              <div class="feature-item">
+                <img src="tail.png" alt="">
+                <span>TAILORED<br>CLEANING PLANS</span>
+              </div>
 
-  <div class="feature-item">
-    <img src="family1.png" alt="">
-    <span>FAMILY OWNED<br>& OPERATED</span><br>
-  </div>
+              <div class="feature-item">
+                <img src="family1.png" alt="">
+                <span>FAMILY OWNED<br>& OPERATED</span><br>
+              </div>
 
-</div>
+            </div>
 <br><br><br><br><br><br>
               <div class="section-title">
                 <h2>Get Your Free Quote</h2>
