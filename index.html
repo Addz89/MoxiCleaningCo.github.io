@@ -636,7 +636,7 @@ header{
 .feature-item span{
   font-size:14px;
   font-weight:600;
-  line-height:1.6;
+  line-height:0.9;
   color:#1B1B1B;
   letter-spacing:.5px;
 }
@@ -926,6 +926,61 @@ header{
   transform:rotate(45deg);
 }
 
+.before-after-section{
+  padding:80px 0;
+  background:#f3ece4;
+  overflow:hidden;
+}
+
+.before-after-section h2{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.photo-slider{
+  display:flex;
+  gap:22px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:20px 6%;
+  cursor:grab;
+}
+
+.photo-slider img{
+  min-width:320px;
+  height:420px;
+  object-fit:cover;
+  border-radius:18px;
+  cursor:pointer;
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:85%;
+  border-radius:12px;
+}
+
+.lightbox button{
+  position:absolute;
+  top:25px;
+  right:35px;
+  font-size:45px;
+  color:white;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
 /* Tablet */
 
 
@@ -1075,6 +1130,47 @@ iframe{
   color:#666;
   line-height:1.8;
   text-align:left;
+}
+
+
+@keyframes scrollSlider{
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  z-index:9999;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+}
+
+.close-lightbox{
+  position:absolute;
+  top:20px;
+  right:35px;
+
+  color:white;
+  font-size:50px;
+  cursor:pointer;
 }
 
 .service-card a{
@@ -1462,18 +1558,34 @@ grid-template-columns: repeat(2, 1fr);
   font-weight:300;
   transition:.3s;
 }
+.feature-item img{
+  width:38px;
+  height:18px;
+  object-fit:contain;
+  margin-left:-40px;
+}
+.feature-item span{
+  margin-left: -20px;
+  font-size:6px;
+  font-weight:700;
+  width:88px;
+  line-height: 8px;
+  color:#1B1B1B;
+  letter-spacing:.9px;
+}
 .feature-item{
-  margin-left: 25px;
+  margin-left: 15px;
 }
 .features-bar{
+  font-size:8px;
   width:100%;
   background:#fff;
-  padding:40px 6%;
+  padding:10px 8%;
 
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:30px;
+  gap:20px;
 
   border-top:1px solid #E6D8C8;
   border-bottom:1px solid #E6D8C8;
@@ -2098,7 +2210,21 @@ grid-template-columns: repeat(2, 1fr);
                <p style="margin-top: 60px; margin-left: 30px; font-size: 0.9rem; color: #475569;">*Prices are for add-on services only. Regular cleaning prices vary based on the size of the home and the frequency of cleaning. Contact us for a personalized quote based on your specific needs.</p>
 
   </div>
-    </section>
+<section class="before-after-section">
+  <h2>Before & After</h2>
+
+  <div class="photo-slider" id="photoSlider">
+    <img src="house.png" alt="">
+    <img src="wallpaper.png" alt="">
+    <img src="before2.png" alt="">
+    <img src="after2.png" alt="">
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button id="closeLightbox">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
 
           <section class="contact" id="contact">
             <div class="container">
@@ -2179,6 +2305,40 @@ grid-template-columns: repeat(2, 1fr);
       <p> Email: info@moxicleaningco.com.au</p>
     </div>
   </footer>
+<script>
+const slider = document.getElementById("photoSlider");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeLightbox = document.getElementById("closeLightbox");
+
+/* slow auto slide */
+setInterval(() => {
+  slider.scrollLeft += 1;
+
+  if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+    slider.scrollLeft = 0;
+  }
+}, 25);
+
+/* click image to open */
+slider.querySelectorAll("img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightbox.style.display = "flex";
+  });
+});
+
+/* close image */
+closeLightbox.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
+</script>
 <script>
 document.querySelectorAll(".service-item").forEach(item => {
 
