@@ -784,6 +784,14 @@ header{
   font-weight:400;
   color:#b88954;
 }
+.slider-track{
+  display:flex;
+  gap:18px;
+  padding:20px;
+  width:max-content;
+
+  animation:scrollSlider 30s linear infinite;
+}
 
 .divider{
   color:#b88954;
@@ -931,6 +939,7 @@ header{
   overflow:hidden;
   padding:60px 0;
   background:#f3ece4;
+
 }
 
 .slider{
@@ -944,7 +953,7 @@ header{
   gap:18px;
   width:max-content;
 
-  animation:scrollSlider 35s linear infinite;
+  animation:scrollSlider 45s linear infinite;
 }
 
 .slider-track img{
@@ -1625,7 +1634,63 @@ grid-template-columns: repeat(2, 1fr);
   border-top:1px solid #E6D8C8;
   border-bottom:1px solid #E6D8C8;
 }
+.before-after-section{
+  width:100%;
+  overflow:hidden;
+  padding:60px 0;
+  background:#faf8f5;
 }
+
+.slider{
+  overflow:hidden;
+}
+.slider::-webkit-scrollbar{
+  display:none;
+}
+
+.slider-track{
+  display:flex;
+  gap:18px;
+  padding:20px;
+  width:max-content;
+
+  animation:scrollSlider 40s linear infinite;
+}
+
+.slider-track img{
+  width:380px;
+  height:360px;
+  object-fit:cover;
+  border-radius:22px;
+  flex-shrink:0;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  cursor:pointer;
+}
+.slider:hover .slider-track{
+  animation-play-state:paused;
+}
+.slider{
+  touch-action:pan-x infinite;
+}
+.top-bar{
+  overflow:hidden;
+}
+@keyframes scrollSlider{
+  0%{
+    transform:translateX(0);
+  }
+
+  100%{
+    transform:translateX(calc(-50% - 1px));
+  }
+}
+
+.slider:hover .slider-track{
+  animation-play-state:paused;
+}
+}
+
+
 
 
   </style>
@@ -2247,34 +2312,34 @@ grid-template-columns: repeat(2, 1fr);
   </div>
 <section class="before-after-section">
 
-  <div class="slider-track">
+  <div class="slider" id="slider">
+    <div class="slider-track">
 
-    <!-- FIRST SET -->
-    <img src="/before/IMG_5478.jpg">
-    <img src="/after/IMG_5488.jpg">
-    <img src="/before/">
-    <img src="after2.jpg">
-    <img src="before3.jpg">
-    <img src="after3.jpg">
+      <!-- FIRST SET -->
+      <img src="/before/IMG_5478.jpg">
+      <img src="/after/IMG_5488.jpg">
+      <img src="/before/IMG_5480.jpg">
+      <img src="/after/IMG_5487.jpg">
+      <img src="/before/IMG_5484.jpg">
+      <img src="/after/IMG_5494.jpg">
 
-    <!-- DUPLICATE SET -->
-    <img src="before1.jpg">
-    <img src="after1.jpg">
-    <img src="before2.jpg">
-    <img src="after2.jpg">
-    <img src="before3.jpg">
-    <img src="after3.jpg">
+      <!-- DUPLICATE SET -->
+      <img src="/before/IMG_5478.jpg">
+      <img src="/after/IMG_5488.jpg">
+      <img src="/before/IMG_5480.jpg">
+      <img src="/after/IMG_5487.jpg">
+      <img src="/before/IMG_5484.jpg">
+      <img src="/after/IMG_5494.jpg">
 
+    </div>
   </div>
 
 </section>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <span class="close-lightbox">&times;</span>
   <img id="lightbox-img">
 </div>
-
           <section class="contact" id="contact">
             <div class="container">
               <div class="features-bar">
@@ -2355,102 +2420,36 @@ grid-template-columns: repeat(2, 1fr);
     </div>
   </footer>
 <script>
-
-const track = document.querySelector('.slider-track');
-const slider = document.getElementById('slider');
+const slider = document.getElementById("slider");
+const track = slider.querySelector(".slider-track");
 
 let isDown = false;
 let startX;
 let scrollLeft;
 
-/* DRAG / SWIPE */
-
-slider.addEventListener('mousedown', (e) => {
+slider.addEventListener("mousedown", (e) => {
   isDown = true;
+  track.style.animationPlayState = "paused";
   startX = e.pageX - slider.offsetLeft;
   scrollLeft = slider.scrollLeft;
 });
 
-slider.addEventListener('mouseleave', () => {
+slider.addEventListener("mouseleave", () => {
   isDown = false;
+  track.style.animationPlayState = "running";
 });
 
-slider.addEventListener('mouseup', () => {
+slider.addEventListener("mouseup", () => {
   isDown = false;
+  track.style.animationPlayState = "running";
 });
 
-slider.addEventListener('mousemove', (e) => {
+slider.addEventListener("mousemove", (e) => {
   if(!isDown) return;
-
   e.preventDefault();
-
   const x = e.pageX - slider.offsetLeft;
   const walk = (x - startX) * 2;
-
   slider.scrollLeft = scrollLeft - walk;
-});
-
-/* TOUCH */
-
-slider.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].pageX;
-  scrollLeft = slider.scrollLeft;
-});
-
-slider.addEventListener('touchmove', (e) => {
-
-  const x = e.touches[0].pageX;
-  const walk = (x - startX) * 2;
-
-  slider.scrollLeft = scrollLeft - walk;
-
-});
-
-/* LIGHTBOX */
-
-const images = document.querySelectorAll('.slider-track img');
-
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-images.forEach(img => {
-
-  img.addEventListener('click', () => {
-
-    lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
-
-  });
-
-});
-
-document.querySelector('.close-lightbox')
-.addEventListener('click', () => {
-
-  lightbox.style.display = 'none';
-
-});
-
-lightbox.addEventListener('click', (e) => {
-
-  if(e.target === lightbox){
-
-    lightbox.style.display = 'none';
-
-  }
-
-});
-
-</script>
-<script>
-document.querySelectorAll(".service-item").forEach(item => {
-
-  const btn = item.querySelector(".service-btn");
-
-  btn.addEventListener("click", () => {
-    item.classList.toggle("active");
-  });
-
 });
 </script>
 <script>
