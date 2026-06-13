@@ -221,7 +221,7 @@ header{
       border-radius:4px;
       background:#ad7f4e;
       color:white;
-      font-size:18px;
+      font-size:12px;
       font-weight:700;
       font-family:'Poppins', sans-serif;
 
@@ -927,57 +927,92 @@ header{
 }
 
 .before-after-section{
-  padding:80px 0;
-  background:#f3ece4;
+  width:100%;
   overflow:hidden;
+  padding:60px 0;
+  background:#f3ece4;
 }
 
-.before-after-section h2{
-  text-align:center;
-  margin-bottom:35px;
+.slider{
+  overflow:hidden;
+  width:100%;
+  touch-action:pan-y;
 }
 
-.photo-slider{
+.slider-track{
   display:flex;
-  gap:22px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding:20px 6%;
-  cursor:grab;
+  gap:18px;
+  width:max-content;
+
+  animation:scrollSlider 35s linear infinite;
 }
 
-.photo-slider img{
-  min-width:320px;
-  height:420px;
+.slider-track img{
+  width:340px;
+  height:440px;
+
   object-fit:cover;
+
   border-radius:18px;
+
+  flex-shrink:0;
+
   cursor:pointer;
+
+  user-select:none;
+  -webkit-user-drag:none;
 }
+
+@keyframes scrollSlider{
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .slider-track img{
+    width:260px;
+    height:360px;
+  }
+
+}
+
+/* LIGHTBOX */
 
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85);
+
+  background:rgba(0,0,0,.9);
+
   display:none;
   align-items:center;
   justify-content:center;
+
   z-index:9999;
 }
 
 .lightbox img{
-  max-width:90%;
-  max-height:85%;
-  border-radius:12px;
+  max-width:92%;
+  max-height:90%;
+  border-radius:14px;
 }
 
-.lightbox button{
+.close-lightbox{
   position:absolute;
-  top:25px;
-  right:35px;
-  font-size:45px;
+  top:20px;
+  right:30px;
+
   color:white;
-  background:none;
-  border:none;
+  font-size:50px;
+
   cursor:pointer;
 }
 
@@ -2211,19 +2246,33 @@ grid-template-columns: repeat(2, 1fr);
 
   </div>
 <section class="before-after-section">
-  <h2>Before & After</h2>
 
-  <div class="photo-slider" id="photoSlider">
-    <img src="house.png" alt="">
-    <img src="wallpaper.png" alt="">
-    <img src="before2.png" alt="">
-    <img src="after2.png" alt="">
+  <div class="slider-track">
+
+    <!-- FIRST SET -->
+    <img src="/before/IMG_5478.jpg">
+    <img src="/after/IMG_5488.jpg">
+    <img src="/before/">
+    <img src="after2.jpg">
+    <img src="before3.jpg">
+    <img src="after3.jpg">
+
+    <!-- DUPLICATE SET -->
+    <img src="before1.jpg">
+    <img src="after1.jpg">
+    <img src="before2.jpg">
+    <img src="after2.jpg">
+    <img src="before3.jpg">
+    <img src="after3.jpg">
+
   </div>
+
 </section>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <button id="closeLightbox">×</button>
-  <img id="lightboxImg" src="" alt="">
+  <span class="close-lightbox">&times;</span>
+  <img id="lightbox-img">
 </div>
 
           <section class="contact" id="contact">
@@ -2306,38 +2355,92 @@ grid-template-columns: repeat(2, 1fr);
     </div>
   </footer>
 <script>
-const slider = document.getElementById("photoSlider");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-const closeLightbox = document.getElementById("closeLightbox");
 
-/* slow auto slide */
-setInterval(() => {
-  slider.scrollLeft += 1;
+const track = document.querySelector('.slider-track');
+const slider = document.getElementById('slider');
 
-  if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-    slider.scrollLeft = 0;
-  }
-}, 25);
+let isDown = false;
+let startX;
+let scrollLeft;
 
-/* click image to open */
-slider.querySelectorAll("img").forEach(img => {
-  img.addEventListener("click", () => {
+/* DRAG / SWIPE */
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+});
+
+slider.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+
+  e.preventDefault();
+
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+/* TOUCH */
+
+slider.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].pageX;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('touchmove', (e) => {
+
+  const x = e.touches[0].pageX;
+  const walk = (x - startX) * 2;
+
+  slider.scrollLeft = scrollLeft - walk;
+
+});
+
+/* LIGHTBOX */
+
+const images = document.querySelectorAll('.slider-track img');
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+images.forEach(img => {
+
+  img.addEventListener('click', () => {
+
+    lightbox.style.display = 'flex';
     lightboxImg.src = img.src;
-    lightbox.style.display = "flex";
+
   });
+
 });
 
-/* close image */
-closeLightbox.addEventListener("click", () => {
-  lightbox.style.display = "none";
+document.querySelector('.close-lightbox')
+.addEventListener('click', () => {
+
+  lightbox.style.display = 'none';
+
 });
 
-lightbox.addEventListener("click", e => {
-  if (e.target === lightbox) {
-    lightbox.style.display = "none";
+lightbox.addEventListener('click', (e) => {
+
+  if(e.target === lightbox){
+
+    lightbox.style.display = 'none';
+
   }
+
 });
+
 </script>
 <script>
 document.querySelectorAll(".service-item").forEach(item => {
