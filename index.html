@@ -1681,7 +1681,7 @@ grid-template-columns: repeat(2, 1fr);
   }
 
   100%{
-    transform:translateX(calc(-50% - 1px));
+    transform:translateX(calc(-50% - 9px));
   }
 }
 
@@ -1806,7 +1806,15 @@ grid-template-columns: repeat(2, 1fr);
       so you can focus on what<br>
       matters most.
     </p>
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
+<stripe-buy-button
+  buy-button-id="buy_btn_1TiRYY2Z9sag8pUekIdsnQcb"
+  publishable-key="pk_test_51TiROG2Z9sag8pUejGzglPwUrlLitj8dE2RRvF9l07If8O8WcreNin7To4kcbV8SIbty0R843dqEHbLLoQNsWzgl00SgkrqQ5e"
+>
+</stripe-buy-button>
     <a href="#quote" class="opening-btn">GET A FREE QUOTE</a>
   </div>
 </section>
