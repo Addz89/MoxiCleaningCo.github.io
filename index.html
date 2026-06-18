@@ -2424,7 +2424,7 @@ grid-template-columns: repeat(2, 1fr);
   <footer>
     <div class="container">
       <p>© <span id="year"></span> Moxi Cleaning Co. All rights reserved.</p>
-      <p> Email: info@moxicleaningco.com.au</p>
+      <p> Email: support@moxicleaningco.com.au</p>
     </div>
   </footer>
 <script>
@@ -2464,7 +2464,6 @@ document.querySelectorAll(".service-item").forEach(item => {
     
     const menuBtn = document.getElementById("menuBtn");
     const navLinks = document.getElementById("navLinks");
-    const backTop = document.getElementById("backTop");
     const quoteForm = document.getElementById("quoteForm");
     const formMessage = document.getElementById("formMessage");
 
@@ -2482,18 +2481,7 @@ document.querySelectorAll(".service-item").forEach(item => {
       });
     });
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 450) {
-        backTop.classList.add("show");
-      } else {
-        backTop.classList.remove("show");
-      }
-    });
-
-    backTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
+    
     quoteForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   
