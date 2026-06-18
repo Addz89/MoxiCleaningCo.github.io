@@ -1810,13 +1810,7 @@ grid-template-columns: repeat(2, 1fr);
   src="https://js.stripe.com/v3/buy-button.js">
 </script>
 
-<stripe-buy-button
-  buy-button-id="buy_btn_1TiRYY2Z9sag8pUekIdsnQcb"
-  publishable-key="pk_test_51TiROG2Z9sag8pUejGzglPwUrlLitj8dE2RRvF9l07If8O8WcreNin7To4kcbV8SIbty0R843dqEHbLLoQNsWzgl00SgkrqQ5e"
->
-</stripe-buy-button>
-    <a href="#quote" class="opening-btn">GET A FREE QUOTE</a>
-  </div>
+
 </section>
       <div class="container">
         <div class="section-title">
@@ -2442,6 +2436,16 @@ images.forEach(img => {
 
 closeLightbox.addEventListener("click", () => {
   lightbox.style.display = "none";
+});
+
+</script>
+<script>
+document.querySelectorAll(".service-item").forEach(item => {
+  const btn = item.querySelector(".service-btn");
+
+  btn.addEventListener("click", () => {
+    item.classList.toggle("active");
+  });
 });
 </script>
 <script>
