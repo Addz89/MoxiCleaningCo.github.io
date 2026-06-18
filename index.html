@@ -2428,36 +2428,20 @@ grid-template-columns: repeat(2, 1fr);
     </div>
   </footer>
 <script>
-const slider = document.getElementById("slider");
-const track = slider.querySelector(".slider-track");
+const images = document.querySelectorAll(".slider-track img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeLightbox = document.querySelector(".close-lightbox");
 
-let isDown = false;
-let startX;
-let scrollLeft;
-
-slider.addEventListener("mousedown", (e) => {
-  isDown = true;
-  track.style.animationPlayState = "paused";
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
 });
 
-slider.addEventListener("mouseleave", () => {
-  isDown = false;
-  track.style.animationPlayState = "running";
-});
-
-slider.addEventListener("mouseup", () => {
-  isDown = false;
-  track.style.animationPlayState = "running";
-});
-
-slider.addEventListener("mousemove", (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2;
-  slider.scrollLeft = scrollLeft - walk;
+closeLightbox.addEventListener("click", () => {
+  lightbox.style.display = "none";
 });
 </script>
 <script>
