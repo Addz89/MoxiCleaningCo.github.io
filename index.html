@@ -938,8 +938,78 @@ header{
   width:100%;
   overflow:hidden;
   padding:60px 0;
-  background:#f3ece4;
+  background:#E6D8C8;
 
+}
+.about-section{
+  position:relative;
+  width:100%;
+  min-height:700px;
+  overflow:hidden;
+}
+
+.about-section > img{
+  width:100%;
+  height:700px;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+.about-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    1deg,
+    rgba(243,236,228,0.88) 4%,
+    rgba(243,236,228,0.65) 32%,
+    rgba(243,236,228,0.05) 50%
+  );
+}
+
+.about-content{
+  position:absolute;
+  top:50%;
+  left:8%;
+  transform:translateY(-50%);
+  z-index:2;
+  width:42%;
+  max-width:520px;
+  padding:30px;
+}
+
+.about-content h2{
+  color:#111;
+  font-size:38px;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.about-content p{
+  color:#333;
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+.ticks{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.ticks li{
+  color:#111;
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.ticks li::before{
+  content:"✓";
+  color:#b88954;
+  margin-right:10px;
 }
 
 .slider{
@@ -984,6 +1054,54 @@ header{
 
 /* MOBILE */
 
+@media(max-width:520px){
+
+  .about-section{
+    min-height:900px;
+    position:relative;
+  }
+
+  .about-section > img{
+    width:100%;
+    height:900px;
+    object-fit:cover;
+    object-position:center top;
+  }
+
+  .about-content{
+    position:absolute;
+    left:20px;
+    right:20px;
+    bottom:30px;
+    top:auto;
+    margin-top: 240px;
+    width:auto;
+
+    padding:25px;
+
+    background:#E6D8C8;
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+  }
+
+  .about-content h2{
+    font-size:32px;
+    margin-bottom:15px;
+  }
+
+  .about-content p{
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:20px;
+  }
+
+  .ticks li{
+    font-size:15px;
+    margin-bottom:8px;
+  }
+
+}
 @media(max-width:768px){
 
   .slider-track img{
@@ -1720,6 +1838,7 @@ grid-template-columns: repeat(2, 1fr);
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#deep-clean">Deep Cleans</a>
+        <a href="#builders">Builders Cleans</a>
         <a href="#prices">Prices</a>
         <a href="#contact" class="quote-btn">Get a Quote</a>
         
@@ -1782,24 +1901,25 @@ grid-template-columns: repeat(2, 1fr);
   </div>
 </section>
 
-<section class="about-section">
-<img src="" alt="">
-  <div class="about-img">
-    
+<section class="about-section" id="about">
+  <img src="couple.png" alt="Moxi Cleaning Co husband and wife team">
+
+  <div class="about-content">
+    <h2>A Local Husband & Wife Team You Can Trust</h2>
+
+    <p>
+      We treat every home and business like it is our own. Our goal is simple:
+      show up on time, do the job properly, and leave every space looking fresh and clean.
+    </p>
+
+    <ul class="ticks">
+      <li>Friendly and reliable service</li>
+      <li>Flexible bookings</li>
+      <li>Affordable upfront quotes</li>
+      <li>Attention to detail every clean</li>
+    </ul>
   </div>
-        <div class="about-content">
-          <h2>A Local Husband & Wife Team You Can Trust</h2>
-          <p>We treat every home and business like it is our own. Our goal is simple: show up on time, do the job properly, and leave every space looking fresh and clean.</p>
-          <ul class="ticks">
-            <li>Friendly and reliable service</li>
-            <li>Flexible bookings</li>
-            <li>Affordable upfront quotes</li>
-            <li>Attention to detail every clean</li>
-          </ul>
-        </div>
-        </div>
-      </div>
-    </section>
+</section>
     <section class="deepcleans" id="prices">
 <section class="opening">
   <img src="banner1.png" alt="Cleaning products" class="opening-bg">
@@ -1990,7 +2110,7 @@ grid-template-columns: repeat(2, 1fr);
 
 <!-- Builders cleans -->
 
-<section class="service-mobile">
+<section class="service-mobile" id="builders">
 
   <p class="small-title"></p>
   <h2>BUILDERS CLEANS</h2>
@@ -2238,10 +2358,6 @@ grid-template-columns: repeat(2, 1fr);
       <article class="card price-card">
         <h3>Oven Clean</h3>
         <br>
-
-        <div class="price1">
-          From $80
-        </div>
         <br>
 
         <p>
@@ -2253,9 +2369,7 @@ grid-template-columns: repeat(2, 1fr);
         <h3>Plantation Shutters</h3>
         <br>
 
-        <div class="price1">
-          From $40
-        </div>
+
         <br>
 
         <p>
@@ -2266,9 +2380,6 @@ grid-template-columns: repeat(2, 1fr);
         <h3>Heavy Grout Build-Up / Grout Restoration</h3>
         
 
-        <div class="price1">
-          From $50
-        </div>
         <br>
 
         <p>
@@ -2279,9 +2390,6 @@ grid-template-columns: repeat(2, 1fr);
         <h3>Interior Windows</h3>
         
 
-        <div class="price1">
-          From $60
-        </div>
         <br>
 
         <p>
@@ -2292,9 +2400,7 @@ grid-template-columns: repeat(2, 1fr);
         <h3>Wall Spot Cleaning</h3>
         
 
-        <div class="price1">
-          From $40
-        </div>
+
         <br>
 
         <p>
@@ -2305,9 +2411,7 @@ grid-template-columns: repeat(2, 1fr);
         <h3>Balcony / Outdoor Area Reset</h3>
         
 
-        <div class="price1">
-          From $60
-        </div>
+
         <br>
 
         <p>
