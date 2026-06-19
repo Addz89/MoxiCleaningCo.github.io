@@ -77,6 +77,13 @@
   color:var(--text);
   font-family:'Montserrat', Arial, sans-serif;
 }
+.contact,
+.visitor-counter,
+footer,.about-section, .about-content,.prices,.before-after-section,
+.deepcleans.about-img, .deepcleans.about-img, .service-content,header,
+.about-section, .about-img,.about-section {
+  background:#F3ECE4;
+}
 
 h1,h2,h3{
   font-family:'Playfair Display', Georgia, serif;
@@ -96,7 +103,7 @@ h1,h2,h3{
 
 
 .card{
-  background:#fff;
+  background:#F3ECE4;
   border:1px solid var(--line);
   border-radius:0;
   box-shadow:none;
@@ -109,7 +116,7 @@ h1,h2,h3{
 }
 
 header{
-  background:#F3ECE4;
+  background:var(--soft-cream);
   box-shadow:none;
   border-bottom:1px solid var(--line);
 }
@@ -157,7 +164,7 @@ header{
     }
 
     header {
-      background: var(--white);
+      background:var(--soft-cream);
       box-shadow: var(--shadow),#E6D8C8 0px 5px 0px;
       position: sticky;
       top: 0;
@@ -178,7 +185,7 @@ header{
     }
     .logo img {
       border-radius: 47px;
-      height: 160px;
+      height: 130px;
       margin-bottom: -40px;
 
 
@@ -325,6 +332,18 @@ header{
       border: 2px solid var(--white);
       color: var(black);
     }
+.about-content{
+  opacity:0;
+  transform:translateY(80px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.3s ease;
+}
+
+.about-content.show{
+  opacity:2;
+  transform:translateY(0);
+}
 
     .btn-outline:hover {
       background: var(--white);
@@ -332,6 +351,7 @@ header{
     }
 
     section {
+      background:var(--soft-cream);
       padding: 80px 0;
     }
     .cards-top{
@@ -356,6 +376,30 @@ header{
       text-align: center;
       margin-bottom: 45px;
     }
+    .service-text h3{
+    font-size:17px;
+    align-items:left;
+     display:flex;
+     gap:8px;
+  }
+
+  .icon{
+    width:38px;
+    height:38px;
+  }
+
+  .service-content{
+    padding-left:10px;
+  }
+.service-content ul li::marker{
+  color:#B98952;
+}
+.service-content ul li{
+  font-size:14px;
+  color:#666;
+  line-height:1.8;
+  text-align:left;
+}
 
     .section-title h2 {
       color: var(--dark);
@@ -410,6 +454,17 @@ header{
         font-size: 13px;
         padding: 30px;
       }
+      .opening img {
+        margin-top: -30px;
+          mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black 45%,
+    black 75%,
+    transparent 120%
+  );
+
+      }
     
 
     .icon {
@@ -460,6 +515,7 @@ header{
 }
 
 .about-content{
+  background:var(--soft-cream);
   position:absolute;
   font-size :1.1rem;
   right:8%;
@@ -696,6 +752,7 @@ header{
   color: #252525;
 }
 
+
 .opening p {
   margin: 0;
   font-size: 18px;
@@ -864,6 +921,7 @@ header{
   border-bottom:1px solid #e8ded5;
 }
 
+
 .service-btn{
   width:100%;
   display:grid;
@@ -928,6 +986,7 @@ header{
 
 .service-item.active .service-content{
   max-height:300px;
+  
 }
 
 .service-item.active .service-btn b{
@@ -938,7 +997,7 @@ header{
   width:100%;
   overflow:hidden;
   padding:60px 0;
-  background:#E6D8C8;
+  background:#F3ECE4;
 
 }
 .about-section{
@@ -950,47 +1009,65 @@ header{
 
 .about-section > img{
   width:100%;
-  height:700px;
+  height:1800px;
   object-fit:cover;
   object-position:center;
   display:block;
+  transition:all 0.6s ease;
 }
 
-.about-section::after{
+/* dark overlay */
+.about-section::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    1deg,
-    rgba(243,236,228,0.88) 4%,
-    rgba(243,236,228,0.65) 32%,
-    rgba(243,236,228,0.05) 50%
-  );
+  background:rgba(0,0,0,0);
+  z-index:1;
+  transition:all 0.6s ease;
 }
 
 .about-content{
   position:absolute;
   top:50%;
   left:8%;
-  transform:translateY(-50%);
   z-index:2;
   width:42%;
   max-width:520px;
   padding:30px;
+
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(8px);
+  border-radius:20px;
+
+  opacity:0;
+  transform:translateY(-35%);
+  transition:all 0.6s ease;
 }
 
-.about-content h2{
-  color:#111;
-  font-size:38px;
-  line-height:1.1;
-  margin-bottom:20px;
+/* hover effect */
+.about-section:hover > img{
+  transform:scale(1.08);
 }
 
-.about-content p{
-  color:#333;
-  font-size:18px;
-  line-height:1.7;
-  margin-bottom:25px;
+.about-section:hover::before{
+  background:rgba(0,0,0,0.25);
+}
+
+.about-section:hover .about-content{
+  opacity:1;
+  transform:translateY(-50%);
+}
+
+@keyframes floatCard{
+  0%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+  100%{
+    transform:translateY(0);
+  }
 }
 
 .ticks{
@@ -1041,6 +1118,68 @@ header{
   user-select:none;
   -webkit-user-drag:none;
 }
+.faq-section{
+  background:#FAF7F2;
+  padding:100px 8%;
+  display:grid;
+  grid-template-columns:1fr 1.7fr;
+  gap:90px;
+}
+
+.faq-left h2{
+  color:#b88954;
+  font-size:64px;
+  line-height:1.05;
+}
+
+.faq-left p{
+  margin-top:35px;
+  color:#1C1C1C;
+  font-size:20px;
+  line-height:1.6;
+}
+
+.faq-item{
+  border-bottom:1px solid #b88954;
+  padding:30px 35px;
+}
+
+.faq-item.active{
+  background:#F3ECE4;
+  border-radius:20px;
+  border-bottom:none;
+  margin-bottom:30px;
+}
+
+.faq-question{
+  width:100%;
+  border:none;
+  background:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:Georgia, serif;
+  font-size:30px;
+  color:#b88954;
+  cursor:pointer;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+}
+
+.faq-item.active .faq-answer{
+  max-height:300px;
+}
+
+.faq-answer p{
+  margin-top:30px;
+  color:#1C1C1C;
+  font-size:20px;
+  line-height:1.6;
+}
 
 @keyframes scrollSlider{
   from{
@@ -1079,7 +1218,7 @@ header{
 
     padding:25px;
 
-    background:#E6D8C8;
+
     backdrop-filter:blur(10px);
 
     border-radius:20px;
@@ -1245,6 +1384,27 @@ video,
 iframe{
   max-width:100%;
 }
+  .faq-section{
+    grid-template-columns:1fr;
+    gap:40px;
+    padding:70px 24px;
+  }
+
+  .faq-left h2{
+    font-size:46px;
+  }
+
+  .faq-question{
+    font-size:24px;
+  }
+
+  .faq-item{
+    padding:25px 0;
+  }
+
+  .faq-item.active{
+    padding:25px;
+  }
 .service-cards{
   display:grid;
   grid-template-columns:repeat(4, 1fr);
@@ -1295,6 +1455,27 @@ iframe{
 }
 .top-bar{
   display: hidden;
+}
+.about-content{
+  opacity:0;
+  transform:translateY(80px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.about-content.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.about-section > img{
+  transform:scale(1);
+  transition:transform 1.5s ease;
+}
+
+.about-section.active img{
+  transform:scale(1.08);
 }
 
 
@@ -1486,7 +1667,17 @@ iframe{
         font-weight:200;
         display:block;
       }
-
+      .nav{
+        position: sticky;
+      }
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+    background:#F3ECE4;
+  }
       .nav-links{
         position:absolute;
         top:81px;
@@ -1552,6 +1743,7 @@ grid-template-columns: repeat(2, 1fr);
 
 
 .about-content{
+    object-fit:contain;
   height: 230px;
   position:absolute;
   top:50%;
@@ -1648,18 +1840,29 @@ grid-template-columns: repeat(2, 1fr);
     align-items:center;
     padding:22px;
   }
+  .service-card h3{
+  font-family:'Montserrat', Arial, sans-serif;
+  font-size:10px;
+  letter-spacing:1.5px;
+  color:#111;
+  margin-bottom:22px;
+}
   /* top cards */
   .service-cards{
     grid-template-columns: repeat(2, 1fr);
-    gap:0px;
+    gap:60px;
     width:100%;
     row-gap:50px;
   }
+
   .service-card{
+    height: 300px;
     width:100%;
     padding:22px;
   }
+
   .about-content{
+      object-fit:contain;
     height: 230px;
     position:absolute;
     top:50%;
@@ -1701,6 +1904,27 @@ grid-template-columns: repeat(2, 1fr);
      display:flex;
      gap:8px;
   }
+  .service-card h3{
+  font-family:'Montserrat', Arial, sans-serif;
+  font-size:10px;
+  letter-spacing:1.5px;
+  color:#111;
+  margin-bottom:22px;
+}
+
+.service-card p{
+  font-size:10px;
+  line-height:1.8;
+  color:#333;
+  margin-bottom:35px;
+}
+.service-card a{
+  font-size:12px;
+  color:#B98952;
+  line-height:1.8;
+  text-align: center;
+
+}
 
   .icon{
     width:38px;
@@ -1870,27 +2094,27 @@ grid-template-columns: repeat(2, 1fr);
 
       <div class="service-card">
         <div class="service-icon">✦</div>
-        <h3>DEEP CLEANS</h3>
+        <h3>INITIAL DEEP CLEANING</h3>
         <p>A thorough, top-to-bottom clean to refresh your entire home.</p>
         <a href="#deep-clean">LEARN MORE →</a>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">⌂</div>
+        <div class="service-icon">🏠︎</div>
         <h3>MAINTENANCE CLEANING</h3>
         <p>Regular cleaning to keep your home looking its best.</p>
         <a href="#prices">LEARN MORE →</a>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">⌂</div>
+        <div class="service-icon">🗝</div>
         <h3>END-OF-LEASE CLEANING</h3>
         <p>Thorough cleaning to prepare your home for a new tenant or move-out.</p>
         <a href="#prices">LEARN MORE →</a>
       </div>
 
       <div class="service-card">
-        <div class="service-icon">⌂</div>
+        <div class="service-icon">🛠</div>
         <h3>BUILDERS CLEANS / HAND OVER CLEANS</h3>
         <p>Specialized cleaning services for new construction or property handovers.</p>
         <a href="#prices">LEARN MORE →</a>
@@ -1901,7 +2125,7 @@ grid-template-columns: repeat(2, 1fr);
   </div>
 </section>
 
-<section class="about-section" id="about">
+<section class="about-section" id="about-section">
   <img src="couple.png" alt="Moxi Cleaning Co husband and wife team">
 
   <div class="about-content">
@@ -1920,8 +2144,62 @@ grid-template-columns: repeat(2, 1fr);
     </ul>
   </div>
 </section>
-    <section class="deepcleans" id="prices">
-<section class="opening">
+<section class="faq-section">
+
+  <div class="faq-left">
+    <h2>Your Questions<br>Answered</h2>
+    <p>
+      Whether you need a deep clean, regular clean, end of lease clean
+      or extra help around the home, here’s how Moxi Cleaning Co makes it simple.
+    </p>
+  </div>
+
+  <div class="faq-right">
+
+    <div class="faq-item active">
+      <button class="faq-question">
+        <span>What does “Cleaning” include?</span>
+        <span class="arrow">⌃</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Our cleaning services are tailored to your home and schedule.
+          From regular refresh cleans to one-off deep cleans, we make sure
+          your home feels fresh, spotless and cared for.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>What does a deep clean include?</span>
+        <span class="arrow">⌄</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Bathrooms, kitchens, bedrooms, living areas, floors, skirting boards,
+          dusting, window sills, doors, frames and detailed cleaning.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Do you offer end of lease cleans?</span>
+        <span class="arrow">⌄</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes, we offer end of lease cleaning to help prepare the property
+          for final inspection.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<section class="opening" >
   <img src="banner1.png" alt="Cleaning products" class="opening-bg">
 
   <div class="opening-content">
@@ -1932,10 +2210,9 @@ grid-template-columns: repeat(2, 1fr);
       so you can focus on what<br>
       matters most.
     </p>
-<script async
+<!-- <script async
   src="https://js.stripe.com/v3/buy-button.js">
-</script>
-
+</script> -->
 
 </section>
       <div class="container">
@@ -2419,7 +2696,7 @@ grid-template-columns: repeat(2, 1fr);
         </p>
       </article>
     </div>
-               <p style="margin-top: 60px; margin-left: 30px; font-size: 0.9rem; color: #475569;">*Prices are for add-on services only. Regular cleaning prices vary based on the size of the home and the frequency of cleaning. Contact us for a personalized quote based on your specific needs.</p>
+               <p style="margin-top: 60px; margin-left: 30px; font-size: 0.9rem; color: #475569;">*Prices vary based on the size of the home and the frequency of cleaning. Contact us for a personalized quote based on your specific needs.</p>
 
   </div>
 <section class="before-after-section">
@@ -2531,6 +2808,39 @@ grid-template-columns: repeat(2, 1fr);
       <p> Email: support@moxicleaningco.com.au</p>
     </div>
   </footer>
+<script>
+const aboutSection = document.querySelector(".about-section");
+const aboutContent = document.querySelector(".about-content");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      aboutSection.classList.add("active");
+      aboutContent.classList.add("show");
+    }else{
+      aboutSection.classList.remove("active");
+      aboutContent.classList.remove("show");
+    }
+  });
+},{
+  threshold:0.35
+});
+
+observer.observe(aboutSection);
+</script>
+
+
+
+  <script>document.querySelectorAll('.faq-item').forEach(item => {
+
+  const btn = item.querySelector('.faq-question');
+
+  btn.addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+
+});</script>
+
 <script>
 const images = document.querySelectorAll(".slider-track img");
 const lightbox = document.getElementById("lightbox");
