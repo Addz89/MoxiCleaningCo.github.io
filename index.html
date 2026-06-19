@@ -1017,46 +1017,16 @@ header{
 }
 
 /* dark overlay */
-.about-section::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0);
-  z-index:1;
-  transition:all 0.6s ease;
-}
-
-.about-content{
-  position:absolute;
-  top:50%;
-  left:8%;
-  z-index:2;
-  width:42%;
-  max-width:520px;
-  padding:30px;
-
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(8px);
-  border-radius:20px;
-
-  opacity:0;
-  transform:translateY(-35%);
-  transition:all 0.6s ease;
-}
-
-/* hover effect */
-.about-section:hover > img{
-  transform:scale(1.08);
-}
-
-.about-section:hover::before{
-  background:rgba(0,0,0,0.25);
-}
-
-.about-section:hover .about-content{
+.about-section.show-text .couple{
   opacity:1;
-  transform:translateY(-50%);
 }
+
+.about-section.show-text .about-content{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
 
 @keyframes floatCard{
   0%{
@@ -1200,12 +1170,20 @@ header{
     position:relative;
   }
 
-  .about-section > img{
-    width:100%;
-    height:900px;
-    object-fit:cover;
-    object-position:center top;
-  }
+.about-section > img{
+  transform:
+    translateY(480px)
+    scale(3.85)
+    rotate(-2deg);
+}
+
+.about-section > img.active{
+  transform:
+    translateY(55)
+    scale(1)
+    rotate(0deg);
+}
+  
 
   .about-content{
     position:absolute;
@@ -1433,6 +1411,9 @@ iframe{
   margin:0 auto 28px;
 }
 
+
+
+
 .service-card h3{
   font-family:'Montserrat', Arial, sans-serif;
   font-size:18px;
@@ -1456,26 +1437,29 @@ iframe{
 .top-bar{
   display: hidden;
 }
-.about-content{
-  opacity:0;
-  transform:translateY(80px);
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
-}
-
-.about-content.show{
-  opacity:1;
-  transform:translateY(0);
+.about-section{
+  position:relative;
+  width:100%;
+  min-height:900px;
+  background:#F3ECE4;
 }
 
 .about-section > img{
-  transform:scale(1);
-  transition:transform 1.5s ease;
+  width:100%;
+  height:900px;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+
+  opacity:1;
+  transform:none;
+  filter:none;
 }
 
-.about-section.active img{
-  transform:scale(1.08);
+.about-section > img.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0) brightness(991);
 }
 
 
@@ -1644,6 +1628,7 @@ iframe{
       .top-bar{
     display:none;
   }
+ 
       .opening img{
         width:100%;
         max-width:100%;
@@ -1737,9 +1722,9 @@ grid-template-columns: repeat(2, 1fr);
           margin-left: -22px;
         }
 
-.about-section{
+/* .about-section{
   position:relative;
-}
+} */
 
 
 .about-content{
@@ -1748,7 +1733,7 @@ grid-template-columns: repeat(2, 1fr);
   position:absolute;
   top:50%;
   right:5%;
-  transform:translateY(-50%);
+  /* transform:translateY(-50%); */
   width:42%;
   padding:20px;
   /* background:rgba(255,255,255,0.72); */
@@ -1867,7 +1852,7 @@ grid-template-columns: repeat(2, 1fr);
     position:absolute;
     top:50%;
     right:5%;
-    transform:translateY(-50%);
+    /* transform:translateY(-50%); */
     width:90%;
     padding:20px;
     /* background:rgba(255,255,255,0.72); */
@@ -1924,6 +1909,24 @@ grid-template-columns: repeat(2, 1fr);
   line-height:1.8;
   text-align: center;
 
+}
+.couple{
+  opacity:1;
+  transition:opacity .8s ease;
+}
+
+.about-content{
+  opacity:0;
+  transform:translateY(90px);
+  transition:all .8s ease;
+}
+.about-section.show-text .couple{
+  opacity:0.8;
+}
+
+.about-section.show-text .about-content{
+  opacity:1;
+  transform:translateY(0);
 }
 
   .icon{
@@ -2032,6 +2035,49 @@ grid-template-columns: repeat(2, 1fr);
     transform:translateX(calc(-50% - 9px));
   }
 }
+.about-section > img{
+  width:100%;
+  height:900px;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+
+  opacity:1;
+  transform:none;
+  filter:none;
+}
+
+.about-section > img.active{
+  opacity:0;
+  transform:translateY(0) scale(1);
+  filter:blur(05655) brightness(991);
+}
+.couple{
+  opacity:1;
+  filter:blur(0);
+  transition:all 1s ease;
+}
+
+.about-content{
+  opacity:0;
+  transform:translateY(50px);
+  transition:all 1s ease;
+}
+
+.about-section.show-text .couple{
+  opacity:10;
+  filter:blur(6px);
+  transform:scale(1.05);
+}
+
+.about-section.show-text .about-content{
+  opacity:31;
+  transition:opacity .8s ease;
+  top: 20%;
+  opacity:1;
+  transform:translateY(0);
+}
+
 
 .slider:hover .slider-track{
   animation-play-state:paused;
@@ -2126,7 +2172,7 @@ grid-template-columns: repeat(2, 1fr);
 </section>
 
 <section class="about-section" id="about-section">
-  <img src="couple.png" alt="Moxi Cleaning Co husband and wife team">
+  <img src="couple.png" class="couple" alt="Moxi Cleaning Co husband and wife team">
 
   <div class="about-content">
     <h2>A Local Husband & Wife Team You Can Trust</h2>
@@ -2809,24 +2855,42 @@ grid-template-columns: repeat(2, 1fr);
     </div>
   </footer>
 <script>
-const aboutSection = document.querySelector(".about-section");
-const aboutContent = document.querySelector(".about-content");
+window.addEventListener("DOMContentLoaded", () => {
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      aboutSection.classList.add("active");
-      aboutContent.classList.add("show");
-    }else{
-      aboutSection.classList.remove("active");
-      aboutContent.classList.remove("show");
-    }
+  const aboutSection = document.querySelector(".about-section");
+
+  let timer;
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        aboutSection.classList.remove("show-text");
+
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+          aboutSection.classList.add("show-text");
+        }, 1000);
+
+      } else {
+
+        clearTimeout(timer);
+        aboutSection.classList.remove("show-text");
+
+      }
+
+    });
+
+  },{
+    threshold:0.4
   });
-},{
-  threshold:0.35
-});
 
-observer.observe(aboutSection);
+  observer.observe(aboutSection);
+
+});
 </script>
 
 
