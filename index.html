@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="/weblogo.png">
+  <link rel="icon" href="https://www.moxicleaningco.com.au/weblogo.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="https://www.moxicleaningco.com.au/weblogo.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -178,7 +179,11 @@ header{
       justify-content: space-between;
       align-items: center;
     }
-
+    .logo-text{
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-left: -100px;
+    }
     .logo {
 
       color: var(--dark);
@@ -197,7 +202,7 @@ header{
 
     .nav-links {
       display: flex;
-      gap: 108px;
+      gap: 38px;
       align-items: center;
     }
 
@@ -934,6 +939,10 @@ header{
   text-align:left;
   cursor:pointer;
 }
+.logo-text{
+  color: var(--text);
+  
+}
 
 .icon{
   width:74px;
@@ -1006,14 +1015,62 @@ header{
   min-height:700px;
   overflow:hidden;
 }
-
 .about-section > img{
   width:100%;
-  height:1800px;
+  height:900px;
   object-fit:cover;
-  object-position:center;
+  object-position:center top;
   display:block;
-  transition:all 0.6s ease;
+
+  opacity:1;
+  transform:none;
+  filter:none;
+}
+
+.about-section > img.active{
+  opacity:0;
+  transform: translate3d(2);
+  filter:blur(05655) brightness(991);
+}
+.couple{
+  opacity:1;
+  filter:blur(0);
+  transition:all 1s ease;
+}
+
+.about-content{
+  
+  opacity:0;
+  transform: translate3d(2);
+  transition:all 1s ease;
+}
+
+.about-section.show-text .couple{
+  opacity:10;
+  filter:blur(6px);
+  transform:scale(1.05);
+}
+.about-content p{
+
+  opacity: 9;
+}
+
+.about-section.show-text .about-content{
+  opacity:31%;
+  transform: translate3d(2);
+  top: 20%;
+  opacity:1;
+  transform: translate3d(2);
+
+}
+
+.about-section.show-text .about-content{
+  opacity:31%;
+  transform: translate3d(2);
+  top: 20%;
+  opacity:1;
+  transform: translate3d(2);
+
 }
 
 /* dark overlay */
@@ -1609,15 +1666,16 @@ iframe{
 }
 
 
-@media(max-width:900px){
+/* @media(max-width:900px){
   .service-cards{
     grid-template-columns:repeat(2, 1fr);
   }
   
-}
+} */
 
 @media(max-width:520px){
   .service-cards{
+    height: auto;
     gap:10px;
     grid-template-columns:1fr;
   }
@@ -2035,6 +2093,14 @@ grid-template-columns: repeat(2, 1fr);
     transform:translateX(calc(-50% - 9px));
   }
 }
+.logo-text h1{
+  font-size: 5500px;
+}
+.logo{
+  margin-top: -50px;
+  height: 10px;
+  width: 70px;
+}
 .about-section > img{
   width:100%;
   height:900px;
@@ -2049,7 +2115,7 @@ grid-template-columns: repeat(2, 1fr);
 
 .about-section > img.active{
   opacity:0;
-  transform:translateY(0) scale(1);
+  transform: translate3d(2);
   filter:blur(05655) brightness(991);
 }
 .couple{
@@ -2059,8 +2125,9 @@ grid-template-columns: repeat(2, 1fr);
 }
 
 .about-content{
+  
   opacity:0;
-  transform:translateY(50px);
+  transform: translate3d(2);
   transition:all 1s ease;
 }
 
@@ -2069,13 +2136,18 @@ grid-template-columns: repeat(2, 1fr);
   filter:blur(6px);
   transform:scale(1.05);
 }
+.about-content p{
+
+  opacity: 9;
+}
 
 .about-section.show-text .about-content{
-  opacity:31;
-  transition:opacity .8s ease;
+  opacity:31%;
+  transform: translate3d(2);
   top: 20%;
   opacity:1;
-  transform:translateY(0);
+  transform: translate3d(2);
+
 }
 
 
@@ -2102,7 +2174,8 @@ grid-template-columns: repeat(2, 1fr);
 </div>
   <header>
     <div class="container nav">
-      <a href="#" class="logo"><img src="logo3555.png"  alt="Moxi Cleaning Co. Logo"></a>
+      <a href="#" class="logo"><img src="weblogo.png" style="height: 60px; margin: auto; margin-left: -00px;"  alt="Moxi Cleaning Co. Logo"></a>
+      <h1 class="logo-text">Moxi Cleaning Co.</h1>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       <nav class="nav-links" id="navLinks">
         <a href="#services">Services</a>
