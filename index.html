@@ -10,16 +10,13 @@
   <meta property="og:site_name" content="Moxi Cleaning Co">
   <meta name="apple-mobile-web-app-title" content="Moxi Cleaning Co">
 
-  <!-- Favicons -->
   <link rel="icon" href="https://www.moxicleaningco.com.au/weblogo.png" type="image/png" sizes="48x48">
   <link rel="icon" type="image/png" sizes="32x32" href="/weblogo.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/weblogo.png">
   <link rel="apple-touch-icon" href="/weblogo.png">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&db=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -352,313 +349,34 @@
       transform: translateX(5px);
     }
 
-    /* ABOUT SECTION (MATCHING 90417A29-71F9-4A67-A934-845E6FAE0849.jpg STYLE) */
-/* ABOUT SECTION (FIXED FOR MOBILE VIEWING) */
-.about-section {
-  position: relative;
-  background: #FAF7F2;
-  padding: 60px 0;
-}
-.about-card {
-  background: #F6EFE6;
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: row; /* Desktop horizontal layout */
-  min-height: 800px;
-  box-shadow: var(--shadow);
-}
-.about-image-wrapper {
-  position: relative;
-  width: 50%; /* Splitting space evenly on desktop */
-  z-index: 1;
-}
-.about-section img.couple {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  opacity: 0.95;
-  transition: transform 1.5s var(--ease-dramatic);
-}
-.about-content-container {
-  position: relative;
-  z-index: 2;
-  width: 50%;
-  padding: 70px 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.about-content-container h2 {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  line-height: 1.15;
-  font-weight: 500;
-  color: #312A25;
-  margin-bottom: 20px;
-}
-.about-divider {
-  width: 60px;
-  height: 1px;
-  background: #A29486;
-  margin-bottom: 25px;
-}
-.about-lead {
-  font-size: 17px;
-  line-height: 1.6;
-  color: #4A423A;
-  margin-bottom: 30px;
-}
-.about-lead em {
-  font-style: italic;
-  font-family: 'Playfair Display', Georgia, serif;
-  color: var(--bronze-dark);
-  font-weight: 600;
-}
-.about-block {
-  margin-bottom: 25px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s var(--ease-cubic), transform 0.8s var(--ease-cubic);
-}
-.about-section.active .about-block {
-  opacity: 1;
-  transform: translateY(0);
-}
-.about-section.active .about-block:nth-of-type(1) { transition-delay: 0.2s; }
-.about-section.active .about-block:nth-of-type(2) { transition-delay: 0.4s; }
-.about-section.active .about-block:nth-of-type(3) { transition-delay: 0.6s; }
-
-.about-block h3 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #A67C52;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.about-block p {
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: #544D46;
-  margin-bottom: 12px;
-}
-.about-footer-decor {
-  margin-top: 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-.about-footer-decor span {
-  height: 1px;
-  background: #D5C9BD;
-  flex-grow: 1;
-}
-.about-heart {
-  color: #A67C52;
-  font-size: 14px;
-}
-.about-signature {
-  text-align: center;
-  margin-top: 25px;
-}
-.about-signature h4 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: 26px;
-  font-weight: 400;
-  color: #A67C52;
-  margin-bottom: 8px;
-}
-.about-signature p {
-  font-size: 14px;
-  font-weight: 500;
-  color: #544D46;
-}
-
-/* RESPONSIVE MEDIA QUERIES (MOBILE FIX) */
-@media(max-width: 950px) {
-  .about-card {
-    flex-direction: column; /* Stack image on top, text on bottom */
-    min-height: auto;
-  }
-  .about-image-wrapper {
-    width: 100%;
-    height: 380px; /* Gives the couple an ideal visible frame at the top */
-  }
-  .about-content-container {
-    width: 100%;
-    padding: 40px 24px;
-    background: #F6EFE6; /* Clean background for readable text */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    transform: none;
-    opacity: 1;
-  }
-  .about-section.active img.couple {
-    filter: none;
-    opacity: 1;
-  }
-}/* ABOUT SECTION (FIXED FOR MOBILE VIEWING) */
-.about-section {
-  position: relative;
-  background: #FAF7F2;
-  padding: 60px 0;
-}
-.about-card {
-  background: #F6EFE6;
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: row; /* Desktop horizontal layout */
-  min-height: 800px;
-  box-shadow: var(--shadow);
-}
-.about-image-wrapper {
-  position: relative;
-  width: 50%; /* Splitting space evenly on desktop */
-  z-index: 1;
-}
-.about-section img.couple {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  opacity: 0.95;
-  transition: transform 1.5s var(--ease-dramatic);
-}
-.about-content-container {
-  position: relative;
-  z-index: 2;
-  width: 50%;
-  padding: 70px 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.about-content-container h2 {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  line-height: 1.15;
-  font-weight: 500;
-  color: #312A25;
-  margin-bottom: 20px;
-}
-.about-divider {
-  width: 60px;
-  height: 1px;
-  background: #A29486;
-  margin-bottom: 25px;
-}
-.about-lead {
-  font-size: 17px;
-  line-height: 1.6;
-  color: #4A423A;
-  margin-bottom: 30px;
-}
-.about-lead em {
-  font-style: italic;
-  font-family: 'Playfair Display', Georgia, serif;
-  color: var(--bronze-dark);
-  font-weight: 600;
-}
-.about-block {
-  margin-bottom: 25px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s var(--ease-cubic), transform 0.8s var(--ease-cubic);
-}
-.about-section.active .about-block {
-  opacity: 1;
-  transform: translateY(0);
-}
-.about-section.active .about-block:nth-of-type(1) { transition-delay: 0.2s; }
-.about-section.active .about-block:nth-of-type(2) { transition-delay: 0.4s; }
-.about-section.active .about-block:nth-of-type(3) { transition-delay: 0.6s; }
-
-.about-block h3 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #A67C52;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.about-block p {
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: #544D46;
-  margin-bottom: 12px;
-}
-.about-footer-decor {
-  margin-top: 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-.about-footer-decor span {
-  height: 1px;
-  background: #D5C9BD;
-  flex-grow: 1;
-}
-.about-heart {
-  color: #A67C52;
-  font-size: 14px;
-}
-.about-signature {
-  text-align: center;
-  margin-top: 25px;
-}
-.about-signature h4 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: 26px;
-  font-weight: 400;
-  color: #A67C52;
-  margin-bottom: 8px;
-}
-.about-signature p {
-  font-size: 14px;
-  font-weight: 500;
-  color: #544D46;
-}
-
-/* RESPONSIVE MEDIA QUERIES (MOBILE FIX) */
-@media(max-width: 950px) {
-  .about-card {
-    flex-direction: column; /* Stack image on top, text on bottom */
-    min-height: auto;
-  }
-  .about-image-wrapper {
-    width: 100%;
-    height: 380px; /* Gives the couple an ideal visible frame at the top */
-  }
-  .about-content-container {
-    width: 100%;
-    padding: 40px 24px;
-    background: #F6EFE6; /* Clean background for readable text */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    transform: none;
-    opacity: 1;
-  }
-  .about-section.active img.couple {
-    filter: none;
-    opacity: 1;
-  }
-}
-    /* Dynamic Active State Reveal */
-    .about-section.active img.couple {
-      transform: scale(1);
-      filter: blur(2px);
-      opacity: 0.7;
+    /* ABOUT SECTION */
+    .about-section {
+      position: relative;
+      background: #FAF7F2;
+      padding: 60px 0;
+    }
+    .about-card {
+      background: #F6EFE6;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      min-height: 800px;
+      box-shadow: var(--shadow);
+    }
+    .about-image-wrapper {
+      position: relative;
+      width: 50%;
+      z-index: 1;
+    }
+    .about-section img.couple {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.95;
+      transition: transform 1.5s var(--ease-dramatic);
     }
     .about-content-container {
       position: relative;
@@ -707,7 +425,7 @@
     .about-section.active .about-block:nth-of-type(1) { transition-delay: 0.2s; }
     .about-section.active .about-block:nth-of-type(2) { transition-delay: 0.4s; }
     .about-section.active .about-block:nth-of-type(3) { transition-delay: 0.6s; }
-    
+
     .about-block h3 {
       font-family: 'Montserrat', Arial, sans-serif;
       font-size: 13px;
@@ -756,6 +474,10 @@
       font-size: 14px;
       font-weight: 500;
       color: #544D46;
+    }
+
+    .about-section.active img.couple {
+      transform: scale(1);
     }
 
     /* PREMIUM MOBILE INTERACTION ACCORDIONS */
@@ -976,7 +698,7 @@
       line-height: 1.5;
     }
 
-    /* BEFORE / AFTER INFINITE RUNNER */
+    /* BEFORE / AFTER INFINITE RUNNER & MOBILE SWIPER */
     .before-after-section {
       background: var(--cream);
       padding: 80px 0;
@@ -1158,33 +880,48 @@
     /* RESPONSIVE MEDIA QUERIES */
     @media(max-width: 950px) {
       .about-card {
+        flex-direction: column-reverse;
         min-height: auto;
       }
       .about-image-wrapper {
         width: 100%;
-        height: 100%;
+        height: 380px;
       }
       .about-content-container {
         width: 100%;
-        padding: 50px 30px;
-        background: rgba(246, 239, 230, 0.88); /* Layer text right over photo on mobile devices */
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        transform: translateY(40px);
-        opacity: 0;
-        transition: transform 1.2s var(--ease-dramatic), opacity 1.2s var(--ease-dramatic);
-      }
-      .about-section.active .about-content-container {
-        transform: translateY(0);
+        padding: 40px 24px;
+        background: #F6EFE6;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        transform: none;
         opacity: 1;
       }
-      /* On mobile, photo blurs heavier behind the content overlay */
       .about-section.active img.couple {
-        filter: blur(8px) brightness(0.65);
+        filter: none;
+        opacity: 1;
       }
     }
 
     @media(max-width: 850px) {
+      /* Reconfigure Before/After slider section into a touch swipeable horizontal track */
+      .slider {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Fast momentum scrolling on iOS */
+        scroll-snap-type: x mandatory;
+        padding: 10px var(--container-padding, 4%);
+      }
+      .slider-track {
+        animation: none !important; /* Stop auto-scrolling */
+        gap: 15px;
+        padding-right: 4%; /* Prevents the last card cutting off */
+      }
+      .slider-track img {
+        width: 270px;
+        height: 320px;
+        scroll-snap-align: center;
+      }
+
       .top-bar { display: none; }
       .header-wrapper.hide { transform: translateY(0); }
       .menu-btn { display: block; }
@@ -1213,6 +950,39 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
+/* Update the parent container */
+.feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px; /* Increase this number to create more space between image and text */
+}
+
+/* Keep the image rule clean */
+.feature-item img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+      .features-bar{
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        justify-content: center;
+        height: 80px;
+
+      }
+      .feature-item span {
+        margin-left: -30px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        justify-content: center;
+        font-size:8px;
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+    }
     }
 
     @media(max-width: 520px) {
@@ -1301,7 +1071,6 @@
       </div>
     </section>
 
-    <!-- HIGHLY ANIMATED EDITORIAL ABOUT SECTION BASED ON 90417A29-71F9-4A67-A934-845E6FAE0849.jpg -->
     <section class="about-section" id="about-section">
       <div class="container">
         <div class="about-card">
@@ -1562,7 +1331,6 @@
     <img id="lightbox-img" src="" alt="Enlarged view">
   </div>
 
-  <!-- INTERACTION SCRIPTS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       // Smart Header Hide/Show on Scroll
@@ -1689,12 +1457,10 @@
     });
   </script>
 
-  <!-- Embed Chat Script -->
   <script>
-    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=()=>{const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}}()();
+    function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=()=>{const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}}()();
   </script>
 
-  <!-- Firebase Analytics Counter Modules -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
     import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
