@@ -349,7 +349,7 @@
       transform: translateX(5px);
     }
 
-    /* ABOUT SECTION */
+    /* ABOUT SECTION (DESKTOP BASE STYLE) */
     .about-section {
       position: relative;
       background: #FAF7F2;
@@ -376,7 +376,7 @@
       object-fit: cover;
       object-position: center top;
       opacity: 0.95;
-      transition: transform 1.5s var(--ease-dramatic);
+      transition: transform 1.5s var(--ease-dramatic), filter 1.2s var(--ease-cubic), opacity 1.2s var(--ease-cubic);
     }
     .about-content-container {
       position: relative;
@@ -474,10 +474,6 @@
       font-size: 14px;
       font-weight: 500;
       color: #544D46;
-    }
-
-    .about-section.active img.couple {
-      transform: scale(1);
     }
 
     /* PREMIUM MOBILE INTERACTION ACCORDIONS */
@@ -879,127 +875,63 @@
 
     /* RESPONSIVE MEDIA QUERIES */
     @media(max-width: 950px) {
-      .about-card {
-        flex-direction: column-reverse;
-        min-height: auto;
-      }
-      .about-image-wrapper {
-        width: 100%;
-        height: 380px;
-      }
-      .about-content-container {
-        width: 100%;
-        padding: 40px 24px;
-        background: #F6EFE6;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        transform: none;
-        opacity: 1;
-      }
-      .about-section.active img.couple {
-        filter: none;
-        opacity: 1;
-      }
-    }
-
-    @media(max-width: 850px) {
-      /* Reconfigure Before/After slider section into a touch swipeable horizontal track */
-      .slider {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch; /* Fast momentum scrolling on iOS */
-        scroll-snap-type: x mandatory;
-        padding: 10px var(--container-padding, 4%);
-      }
-      .slider-track {
-        animation: none !important; /* Stop auto-scrolling */
-        gap: 15px;
-        padding-right: 4%; /* Prevents the last card cutting off */
-      }
-      .slider-track img {
-        width: 270px;
-        height: 320px;
-        scroll-snap-align: center;
-      }
-      @media(max-width: 950px) {
+      /* UNIFIED CARD FOR MOBILE MOCKUP LAYOUT */
       .about-card {
         flex-direction: column;
         position: relative;
-        min-height: auto;
-        background: #F6EFE6; /* Keeps the card theme color base */
+        min-height: 600px;
+        background: #F6EFE6;
       }
+      .service-cards {
+    /* Forces exactly 2 equal columns side-by-side */
+    grid-template-columns: repeat(2, 1fr); 
+    /* Slightly reduces the gaps on mobile so cards don't look squeezed */
+    gap: 15px; 
+  }
+
+  .service-card {
+    /* Reduces generous desktop padding so the contents have space inside small cards */
+    padding: 24px 15px; 
+  }
+
+  .service-icon {
+    /* Scales down the circle icon slightly so it matches the smaller card layout */
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .service-card h3 {
+    /* Shrinks down the title text slightly to prevent awkward line breaks or words getting cut off */
+    font-size: 14px; 
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    /* Optional: Makes paragraph text slightly more compact for better mobile readability */
+    font-size: 12px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+.header-wrapper {
+  position: fixed; /* Cleans up any glitching and locks it hard to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;  /* Keeps it floating safely above your images/hero text */
+}
       
+      /* Image wrapper acts as absolute background layer */
       .about-image-wrapper {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1; /* Pushes the image container behind the text */
+        z-index: 1;
       }
-      
-      .about-section img.couple {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 55% top; /* Shifts the couple slightly right so text on the left stays readable */
-        opacity: 0.25; /* Fades the image dramatically so text pops out over it, just like your mockup */
-      }
-      
-      .about-content-container {
-        position: relative;
-        z-index: 2; /* Ensures text stays sharply on top of the background image */
-        width: 100%;
-        padding: 50px 24px;
-        background: transparent; /* Removes the solid background box hiding the couple */
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        transform: none;
-        opacity: 1;
-      }
-      
-      /* Optional: Optimizing text sizing slightly for standard mobile viewports */
-      .about-content-container h2 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-      }
-
-      .about-section.active img.couple {
-        filter: none;
-        opacity: 0.25; /* Matches the base mobile opacity when scroll-reveal activates */
-      }
-    }
-
-      .top-bar { display: none; }
-      .header-wrapper.hide { transform: translateY(0); }
-      .menu-btn { display: block; }
-      .nav-links {
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        background: var(--soft-cream);
-        flex-direction: column;
-        padding: 40px;
-        gap: 24px;
-        border-bottom: 1px solid var(--line);
-        opacity: 0;
-        transform: translateY(-20px);
-        pointer-events: none;
-        transition: opacity 0.3s var(--ease-cubic), transform 0.3s var(--ease-cubic);
-        box-shadow: var(--shadow);
-      }
-      .nav-links.active {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: all;
-      }
-      .faq-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-/* Update the parent container */
-.feature-item {
+      .feature-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1031,6 +963,96 @@
         line-height: 1.4;
         letter-spacing: 0.5px;
     }
+      
+      /* Base state before user scrolls here: Image is fully clear & visible */
+      .about-section img.couple {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 60% top;
+        opacity: 0.75;
+        filter: blur(0px);
+      }
+      
+      /* ANIMATION TRIGGER: Once scrolled into view, image blurs out and text fades in */
+      .about-section.active img.couple {
+        opacity: 0.2;               /* Dims down softly into the cream card color */
+        filter: blur(7px);          /* High-end lens blur effect */
+        transition-delay: 0.8s;      /* Brief pause showing the raw image first */
+      }
+      
+      /* Base state before scroll: Text elements are fully hidden below */
+      .about-content-container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 55px 24px;
+        background: transparent;
+        opacity: 0;
+        transform: translateY(80px);
+        transition: opacity 1.2s var(--ease-cubic) 0.6s, transform 1.2s var(--ease-cubic) 0.6s;
+      }
+      
+      /* ANIMATION TRIGGER: Once scrolled into view, text transitions into position */
+      .about-section.active .about-content-container {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .about-content-container h2 {
+        font-size: 2.1rem;
+        margin-bottom: 15px;
+      }
+    }
+
+    @media(max-width: 850px) {
+      /* Before/After swipeable horizontal track */
+      .slider {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding: 10px 4%;
+      }
+      .slider-track {
+        animation: none !important;
+        gap: 15px;
+        padding-right: 4%;
+      }
+      .slider-track img {
+        width: 270px;
+        height: 320px;
+        scroll-snap-align: center;
+      }
+
+      .top-bar { display: none; }
+      .header-wrapper.hide { transform: translateY(0); }
+      .menu-btn { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--soft-cream);
+        flex-direction: column;
+        padding: 40px;
+        gap: 24px;
+        border-bottom: 1px solid var(--line);
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        transition: opacity 0.3s var(--ease-cubic), transform 0.3s var(--ease-cubic);
+        box-shadow: var(--shadow);
+      }
+      .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+      .faq-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
     }
 
     @media(max-width: 520px) {
@@ -1066,6 +1088,7 @@
           <a href="#about-section">About</a>
           <a href="#deep-clean">Deep Cleans</a>
           <a href="#builders">Builders Cleans</a>
+          <a href="#end-of-lease">End of Lease Cleans</a>
           <a href="#contact" class="quote-btn">Get a Quote</a>
         </nav>
       </div>
@@ -1098,19 +1121,19 @@
             <a href="#deep-clean">LEARN MORE →</a>
           </div>
           <div class="service-card reveal delay-2">
-            <div class="service-icon">🏠︎</div>
+            <div class="service-icon">✦</div>
             <h3>MAINTENANCE CLEANING</h3>
             <p>Regular cleaning to keep your home looking its best.</p>
-            <a href="#contact">LEARN MORE →</a>
+            <a href="#maintenance-clean">LEARN MORE →</a>
           </div>
           <div class="service-card reveal delay-3">
-            <div class="service-icon">🗝</div>
+            <div class="service-icon">✦</div>
             <h3>END-OF-LEASE CLEANING</h3>
             <p>Thorough cleaning to prepare your home for final move-out inspections.</p>
-            <a href="#contact">LEARN MORE →</a>
+            <a href="#end-of-lease">LEARN MORE →</a>
           </div>
           <div class="service-card reveal delay-1">
-            <div class="service-icon">🛠</div>
+            <div class="service-icon">✦</div>
             <h3>BUILDERS CLEANS</h3>
             <p>Specialized post-construction cleanups ready for handover.</p>
             <a href="#builders">LEARN MORE →</a>
@@ -1256,6 +1279,34 @@
       </div>
     </section>
 
+    <section id="maintenance-clean" class="service-mobile reveal">
+      <div class="section-title">
+        <h2>MAINTENANCE CLEAN</h2>
+        <span></span>
+      </div>
+      <p class="intro">Regular, ongoing cleaning scheduled weekly, fortnightly, or monthly to keep your home consistently fresh, tidy, and stress-free.</p>
+      
+      <div class="service-list">
+        <div class="service-item">
+          <button class="service-btn">
+            <div style="display:flex; align-items:center;">
+              <div class="icon"><img src="general_icon.png" alt="Maintenance clean"></div>
+              <h3>ROUTINE REFRESH CARE</h3>
+            </div>
+            <span class="plus">+</span>
+          </button>
+          <div class="service-content">
+            <ul>
+              <li>Dusting of all accessible surfaces, tables, and visible furniture</li>
+              <li>Quick wipe-downs of kitchen exterior benchtops, sinks, and stovetops</li>
+              <li>General vacuuming of carpets and thorough mopping of hard floors</li>
+              <li>Sanitising and wiping down toilets, bathroom vanities, and showers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="builders" class="service-mobile reveal">
       <div class="section-title">
         <h2>BUILDERS CLEANS</h2>
@@ -1277,6 +1328,34 @@
               <li>Heavy paint spray & construction dust vacuum removal</li>
               <li>Skirting and framing tracks detail vacuumed</li>
               <li>Internal fixture residue removal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="end-of-lease" class="service-mobile reveal">
+      <div class="section-title">
+        <h2>END OF LEASE CLEAN</h2>
+        <span></span>
+      </div>
+      <p class="intro">Thorough, real estate grade move-out cleaning designed to target strict inspection checklists and secure your bond refund.</p>
+      
+      <div class="service-list">
+        <div class="service-item">
+          <button class="service-btn">
+            <div style="display:flex; align-items:center;">
+              <div class="icon"><img src="general_icon.png" alt="End of lease clean"></div>
+              <h3>BOND CHECKLIST CARE</h3>
+            </div>
+            <span class="plus">+</span>
+          </button>
+          <div class="service-content">
+            <ul>
+              <li>Detailed cleaning of inside/outside all cupboards and drawers</li>
+              <li>Thorough wipe-downs of doors, frames, skirting boards, and light switches</li>
+              <li>Hard floors vacuumed and systematically mopped to clear track marks</li>
+              <li>Deep scrubbing of cooktops, rangehoods, and splashback areas</li>
             </ul>
           </div>
         </div>
@@ -1379,11 +1458,12 @@
     <img id="lightbox-img" src="" alt="Enlarged view">
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Smart Header Hide/Show on Scroll
-      let lastScroll = 0;
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+      // Smart Header Locked (Scroll event removed so it stays put)
       const headerWrapper = document.getElementById("headerWrapper");
+      
+      // The window.addEventListener("scroll", ...) block has been removed completely!
       
       window.addEventListener("scroll", () => {
         const currentScroll = window.pageYOffset;
@@ -1399,12 +1479,16 @@
         lastScroll = currentScroll;
       });
 
-      // Scroll Reveal Observer API
+      // Scroll Reveal Observer API with Auto-Reset (Fixed Duplicate Error)
       const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
             entry.target.querySelectorAll(".reveal").forEach(child => child.classList.add("active"));
+          } else {
+            // When they scroll away, remove the active class to reset the image and text
+            entry.target.classList.remove("active");
+            entry.target.querySelectorAll(".reveal").forEach(child => child.classList.remove("active"));
           }
         });
       };
@@ -1415,6 +1499,7 @@
         rootMargin: "0px 0px -40px 0px"
       });
 
+      // This targets the about section to trigger our custom mobile card transitions perfectly
       document.querySelectorAll(".reveal, .about-section").forEach(el => revealObserver.observe(el));
 
       // Toggle Mobile Menu
@@ -1506,7 +1591,7 @@
   </script>
 
   <script>
-    function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=()=>{const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}}()();
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(args)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=()=>{const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}}()();
   </script>
 
   <script type="module">
@@ -1545,5 +1630,8 @@
     }
     updateCounter();
   </script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="yp9n--ym0GUI8x6iL-J7K";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
 </body>
 </html>
