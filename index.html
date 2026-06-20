@@ -921,6 +921,54 @@
         height: 320px;
         scroll-snap-align: center;
       }
+      @media(max-width: 950px) {
+      .about-card {
+        flex-direction: column;
+        position: relative;
+        min-height: auto;
+        background: #F6EFE6; /* Keeps the card theme color base */
+      }
+      
+      .about-image-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Pushes the image container behind the text */
+      }
+      
+      .about-section img.couple {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 55% top; /* Shifts the couple slightly right so text on the left stays readable */
+        opacity: 0.25; /* Fades the image dramatically so text pops out over it, just like your mockup */
+      }
+      
+      .about-content-container {
+        position: relative;
+        z-index: 2; /* Ensures text stays sharply on top of the background image */
+        width: 100%;
+        padding: 50px 24px;
+        background: transparent; /* Removes the solid background box hiding the couple */
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        transform: none;
+        opacity: 1;
+      }
+      
+      /* Optional: Optimizing text sizing slightly for standard mobile viewports */
+      .about-content-container h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .about-section.active img.couple {
+        filter: none;
+        opacity: 0.25; /* Matches the base mobile opacity when scroll-reveal activates */
+      }
+    }
 
       .top-bar { display: none; }
       .header-wrapper.hide { transform: translateY(0); }
