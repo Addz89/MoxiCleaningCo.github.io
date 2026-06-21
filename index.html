@@ -952,6 +952,25 @@
   justify-content: center;
   gap: 30px; /* Increase this number to create more space between image and text */
 }
+/* Layout and base styles */
+.hero-socials {
+  display: flex;
+  gap: 20px; /* Adjust spacing between icons */
+  align-items: center;
+}
+
+/* Base state for the links */
+.hero-socials a {
+  display: inline-block; /* Transforms only work on block/inline-block elements */
+  color: whitesmoke; /* Default icon color */
+  transition: transform 0.3s ease, color 0.3s ease; /* The magic that makes it smooth */
+}
+
+/* Hover state */
+.hero-socials a:hover {
+  color: #8A5E34; /* Replace with Moxi's brand color */
+  transform: translateY(-5px) scale(1.1); /* Lifts up and grows slightly */
+}
 
 /* Keep the image rule clean */
 .feature-item img {
@@ -978,6 +997,7 @@
         line-height: 1.4;
         letter-spacing: 0.5px;
     }
+
       
       /* Base state before user scrolls here: Image is fully clear & visible */
       .about-section img.couple {
@@ -995,6 +1015,7 @@
         filter: blur(7px);          /* High-end lens blur effect */
         transition-delay: 0.8s;      /* Brief pause showing the raw image first */
       }
+      
       
       /* Base state before scroll: Text elements are fully hidden below */
       .about-content-container {
@@ -1029,6 +1050,8 @@
         scroll-snap-type: x mandatory;
         padding: 10px 4%;
       }
+
+
       .slider-track {
         animation: none !important;
         gap: 15px;
@@ -1067,6 +1090,9 @@
       .faq-section {
         grid-template-columns: 1fr;
         gap: 40px;
+      }
+      .hero-socials svg{
+        height: 30px;
       }
     }
 
@@ -1113,7 +1139,7 @@
       </div>
     </header>
   </div>
-
+<br><br><br><br><br>
 <main>
     <section class="hero" id="home">
       <div class="container hero-content">
@@ -1124,7 +1150,7 @@
           <a href="#contact" class="btn btn-primary">Book a Free Quote</a>
           <a href="#services" class="btn btn-outline">View Services</a>
         </div>
-        
+        <br><br><br><br><br><br><br><br>
         <div class="hero-socials">
           <a href="https://www.instagram.com/moxicleaningco/" target="_blank" aria-label="Follow Moxi Cleaning Co on Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="82" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -1133,7 +1159,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="82" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
           <a href="https://www.tiktok.com/@moxicleaningco" target="_blank" aria-label="Follow Moxi Cleaning Co on TikTok">
-            <svg xmlns="http://www.w3.org/2000/svg" width="82" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="82" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
           </a>
         </div>
 
@@ -1469,12 +1495,12 @@
           <p id="formMessage" style="text-align:center; font-weight:700;"></p>
         </form>
 
-        <div class="visitor-counter">
+        <!-- <div class="visitor-counter">
           <span class="counter-label">VISITORS</span>
           <div class="counter-box">
             <span id="visitCount">000000</span>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
   </main>
