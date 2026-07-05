@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thank You | Moxi Cleaning Co.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--cream:#F3ECE4;
+--soft:#FAF7F2;
+--bronze:#B98952;
+--bronze-dark:#8A5E34;
+--text:#3A3530;
+--line:#E6D8C8;
+}
+
+body{
+font-family:Montserrat,sans-serif;
+background:var(--soft);
+color:var(--text);
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+overflow:hidden;
+position:relative;
+}
+
+body::before{
+content:"";
+position:absolute;
+inset:0;
+background:url("knfids.png") center/cover no-repeat;
+opacity:.08;
+transform:scale(1.05);
+}
+
+.card{
+position:relative;
+z-index:2;
+width:min(700px,92%);
+background:white;
+padding:70px 50px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 25px 60px rgba(0,0,0,.08);
+border:1px solid var(--line);
+animation:fadeUp .8s ease;
+}
+
+.check{
+width:90px;
+height:90px;
+margin:auto auto 30px;
+border-radius:50%;
+background:var(--bronze);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:48px;
+animation:pop .5s ease;
+}
+
+h1{
+font-family:"Playfair Display",serif;
+font-size:3rem;
+margin-bottom:15px;
+color:#2D2722;
+}
+
+p{
+font-size:17px;
+line-height:1.8;
+margin-bottom:18px;
+color:#666;
+}
+
+.highlight{
+font-weight:700;
+color:var(--bronze-dark);
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:16px 34px;
+background:var(--bronze);
+color:white;
+text-decoration:none;
+font-weight:700;
+letter-spacing:.5px;
+border-radius:4px;
+transition:.3s;
+}
+
+.btn:hover{
+background:var(--bronze-dark);
+transform:translateY(-3px);
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes pop{
+0%{
+transform:scale(0);
+}
+80%{
+transform:scale(1.15);
+}
+100%{
+transform:scale(1);
+}
+}
+
+@media(max-width:600px){
+
+.card{
+padding:50px 30px;
+}
+
+h1{
+font-size:2.2rem;
+}
+
+p{
+font-size:15px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="check">
+✓
+</div>
+
+<h1>Thank You!</h1>
+
+<p>
+Your quote request has been successfully received.
+</p>
+
+<p>
+A member of <span class="highlight">Moxi Cleaning Co.</span> will review your request and contact you as soon as possible.
+</p>
+
+<p>
+We appreciate you supporting our local husband & wife business.
+</p>
+
+<a href="index.html" class="btn">
+Return Home
+</a>
+
+</div>
+
+</body>
+</html>
